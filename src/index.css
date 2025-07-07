@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #A288E3;
+  --primary-dark: #8A6AD3;
+  --secondary: #00C2FF;
+  --accent: #FF8A3D;
+  --background: #0A0A0F;
+  --foreground: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--foreground);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  background-color: var(--background);
+}
+
+@layer components {
+  .glow {
+    filter: drop-shadow(0 0 0.5rem var(--primary));
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-secondary to-primary text-transparent bg-clip-text;
+  }
+  
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-white font-medium px-6 py-2.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-primary/20 hover:shadow-xl;
+  }
+  
+  .container-custom {
+    @apply w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(162, 136, 227, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(162, 136, 227, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+/* Animation utilities */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
