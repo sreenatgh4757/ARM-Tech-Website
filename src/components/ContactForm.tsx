@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Send, Calendar, Mail, Phone, MapPin } from 'lucide-react';
+import { Send, Calendar, Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -43,7 +43,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-background to-card/20">
+    <section id="contact" className="py-20 bg-gradient-to-b from-card/20 to-background">
       <div className="container-custom mx-auto px-4">
         <motion.div
           className="text-center mb-16"
@@ -56,7 +56,7 @@ const ContactForm: React.FC = () => {
             Let's <span className="text-gradient">Transform</span> Your Business
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Ready to harness the power of AI automation? Get in touch with our experts 
+            Ready to harness the power of intelligent automation? Get in touch with our experts 
             and discover how we can revolutionize your operations.
           </p>
         </motion.div>
@@ -112,18 +112,32 @@ const ContactForm: React.FC = () => {
                   </a>
                 </div>
               </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-primary/20 p-3 rounded-lg">
+                  <Clock className="text-primary" size={24} />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-white mb-1">Business Hours</h4>
+                  <p className="text-gray-300">
+                    Monday - Friday: 9:00 AM - 6:00 PM GMT
+                  </p>
+                </div>
+              </div>
             </div>
             
             <div className="mt-8 p-6 bg-card/50 rounded-2xl">
               <div className="flex items-center gap-3 mb-3">
                 <Calendar className="text-primary" size={20} />
-                <h4 className="font-semibold text-white">Schedule a Call</h4>
+                <h4 className="font-semibold text-white">Schedule a Free Consultation</h4>
               </div>
               <p className="text-gray-300 text-sm mb-4">
-                Prefer to speak directly? Book a consultation call with our experts.
+                Prefer to speak directly? Book a 30-minute consultation call with our experts 
+                to discuss your project requirements and explore how we can help.
               </p>
-              <button className="text-primary hover:text-primary-dark font-medium transition-colors">
-                Book Consultation →
+              <button className="bg-primary hover:bg-primary-dark text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 flex items-center gap-2">
+                <Calendar size={18} />
+                Book Free Consultation
               </button>
             </div>
           </motion.div>
@@ -141,6 +155,8 @@ const ContactForm: React.FC = () => {
             )}
 
             <form onSubmit={handleSubmit} className="bg-card/50 backdrop-blur-sm rounded-2xl p-8">
+              <h3 className="text-2xl font-bold mb-6 text-white">Send us a Message</h3>
+              
               <div className="mb-6">
                 <label htmlFor="name" className="block text-white font-medium mb-2">
                   Full Name *
@@ -175,7 +191,7 @@ const ContactForm: React.FC = () => {
 
               <div className="mb-6">
                 <label htmlFor="message" className="block text-white font-medium mb-2">
-                  Message *
+                  Project Details *
                 </label>
                 <textarea
                   id="message"
@@ -185,7 +201,7 @@ const ContactForm: React.FC = () => {
                   onChange={handleChange}
                   rows={5}
                   className="w-full bg-background/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition resize-none"
-                  placeholder="Tell us about your project requirements..."
+                  placeholder="Tell us about your project requirements, timeline, and how we can help transform your business..."
                 ></textarea>
               </div>
 

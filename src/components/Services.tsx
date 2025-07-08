@@ -1,14 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Bot, Cpu, Cloud, ArrowRight } from 'lucide-react';
+import { Bot, Cpu, Cloud, Code, Rocket } from 'lucide-react';
 
 interface ServiceCardProps {
   title: string;
   description: string;
   features: string[];
   icon: React.ReactNode;
-  imageUrl: string;
   delay: number;
 }
 
@@ -17,7 +16,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   description, 
   features, 
   icon, 
-  imageUrl, 
   delay 
 }) => {
   const [ref, inView] = useInView({
@@ -28,41 +26,26 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   return (
     <motion.div
       ref={ref}
-      className="bg-card rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group"
+      className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 hover:bg-card/70 transition-all duration-300 group h-full"
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6, delay }}
     >
-      <div className="relative h-48 overflow-hidden">
-        <img 
-          src={imageUrl} 
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent"></div>
-        <div className="absolute bottom-4 left-4 text-primary">
-          {icon}
-        </div>
+      <div className="text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
+        {icon}
       </div>
       
-      <div className="p-6">
-        <h3 className="text-2xl font-bold mb-3 text-white">{title}</h3>
-        <p className="text-gray-300 mb-4 leading-relaxed">{description}</p>
-        
-        <ul className="space-y-2 mb-6">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-center gap-2 text-sm text-gray-400">
-              <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-              {feature}
-            </li>
-          ))}
-        </ul>
-        
-        <button className="text-primary hover:text-primary-dark font-medium flex items-center gap-2 transition-colors">
-          Learn More
-          <ArrowRight size={16} />
-        </button>
-      </div>
+      <h3 className="text-2xl font-bold mb-4 text-white">{title}</h3>
+      <p className="text-gray-300 mb-6 leading-relaxed">{description}</p>
+      
+      <ul className="space-y-3">
+        {features.map((feature, index) => (
+          <li key={index} className="flex items-start gap-3 text-sm text-gray-400">
+            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+            {feature}
+          </li>
+        ))}
+      </ul>
     </motion.div>
   );
 };
@@ -75,48 +58,74 @@ const Services: React.FC = () => {
 
   const services = [
     {
-      title: "AI Automation",
-      description: "Transform your business processes with intelligent automation solutions that learn, adapt, and optimize workflows in real-time.",
+      title: "Automation & DevOps Solutions",
+      description: "Streamline your development lifecycle with intelligent automation, CI/CD pipelines, and infrastructure optimization.",
       features: [
-        "Intelligent Process Automation",
-        "Machine Learning Integration",
-        "Real-time Decision Making",
-        "Custom AI Model Development"
+        "CI/CD Pipeline Setup & Optimization",
+        "Infrastructure as Code (IaC)",
+        "Automated Testing & Deployment",
+        "Monitoring & Performance Optimization",
+        "Container Orchestration (Docker, Kubernetes)"
       ],
-      icon: <Bot size={32} />,
-      imageUrl: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2",
+      icon: <Bot size={40} />,
       delay: 0.1
     },
     {
-      title: "Agentic AI",
-      description: "Deploy autonomous AI agents that can reason, plan, and execute complex tasks independently while maintaining human oversight.",
+      title: "Agentic AI Integrations",
+      description: "Deploy intelligent AI agents that can reason, plan, and execute complex business tasks autonomously.",
       features: [
-        "Autonomous Decision Making",
-        "Multi-Agent Coordination",
-        "Goal-Oriented Planning",
-        "Human-AI Collaboration"
+        "Custom AI Agent Development",
+        "Multi-Agent System Architecture",
+        "Natural Language Processing Integration",
+        "Automated Decision Making Systems",
+        "AI-Powered Workflow Optimization"
       ],
-      icon: <Cpu size={32} />,
-      imageUrl: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2",
+      icon: <Cpu size={40} />,
       delay: 0.2
     },
     {
-      title: "DevOps & Cloud Infrastructure",
-      description: "Streamline your development lifecycle with automated CI/CD pipelines, cloud-native solutions, and infrastructure as code.",
+      title: "Cloud Infrastructure Setup",
+      description: "Scalable, secure cloud solutions across AWS, Azure, and GCP tailored to your business needs.",
       features: [
-        "CI/CD Pipeline Automation",
-        "Cloud-Native Architecture",
-        "Infrastructure as Code",
-        "Monitoring & Optimization"
+        "Multi-Cloud Architecture Design",
+        "AWS, Azure, GCP Implementation",
+        "Security & Compliance Setup",
+        "Cost Optimization Strategies",
+        "Disaster Recovery Planning"
       ],
-      icon: <Cloud size={32} />,
-      imageUrl: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2",
+      icon: <Cloud size={40} />,
       delay: 0.3
+    },
+    {
+      title: "Full Software Development Lifecycle",
+      description: "End-to-end software development support from planning to deployment and maintenance.",
+      features: [
+        "Requirements Analysis & Planning",
+        "Full-Stack Web & Mobile Development",
+        "API Design & Integration",
+        "Quality Assurance & Testing",
+        "Maintenance & Support"
+      ],
+      icon: <Code size={40} />,
+      delay: 0.4
+    },
+    {
+      title: "Startup Support Services",
+      description: "Comprehensive support for startups from concept validation to MVP delivery and scaling.",
+      features: [
+        "Business Requirements Documentation (BRD)",
+        "MVP Design & Development",
+        "UI/UX Planning (Simple & Functional)",
+        "Research & Development Services",
+        "End-to-End Product Delivery"
+      ],
+      icon: <Rocket size={40} />,
+      delay: 0.5
     }
   ];
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-background to-background/95">
+    <section id="services" className="py-20 bg-gradient-to-b from-card/20 to-background">
       <div className="container-custom mx-auto px-4">
         <motion.div
           className="text-center mb-16"
@@ -128,15 +137,21 @@ const Services: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Our <span className="text-gradient">Services</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            We deliver cutting-edge technology solutions that drive innovation and efficiency 
-            across your entire organization.
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            From intelligent automation to full-scale product development, we deliver 
+            comprehensive technology solutions that drive business success.
           </p>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {services.slice(0, 3).map((service, index) => (
             <ServiceCard key={index} {...service} />
+          ))}
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 max-w-4xl mx-auto">
+          {services.slice(3).map((service, index) => (
+            <ServiceCard key={index + 3} {...service} />
           ))}
         </div>
       </div>
