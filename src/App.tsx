@@ -5,7 +5,6 @@ import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import Services from './components/Services';
 import RecentProjects from './components/RecentProjects';
-import Testimonials from './components/Testimonials';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 
@@ -21,7 +20,6 @@ function App() {
               <AboutUs />
               <Services />
               <RecentProjects />
-              <Testimonials />
               <ContactForm />
             </>
           } />
