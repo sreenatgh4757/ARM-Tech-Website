@@ -24,10 +24,18 @@ const Navbar: React.FC = () => {
       <div className="container-custom mx-auto py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <div className="bg-primary/20 p-2 rounded-lg">
-              <Bot className="text-primary" size={24} />
+            <div className="relative">
+              {/* Modern ARM Logo */}
+              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-primary via-secondary to-accent rounded-xl shadow-lg">
+                <div className="text-white font-bold text-lg tracking-wider">ARM</div>
+              </div>
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 rounded-xl blur-sm -z-10"></div>
             </div>
-            <span className="text-white font-bold text-xl">ARM Technologies LTD</span>
+            <div className="flex flex-col">
+              <span className="text-white font-bold text-xl tracking-wide">ARM Technologies</span>
+              <span className="text-gray-400 text-xs font-medium tracking-widest uppercase">Limited</span>
+            </div>
           </Link>
 
           {/* Desktop Menu */}
