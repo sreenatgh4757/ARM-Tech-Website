@@ -35,7 +35,7 @@ body {
   }
   
   .btn-primary {
-    @apply bg-primary hover:bg-primary-dark text-white font-medium px-6 py-2.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-primary/20 hover:shadow-xl;
+    @apply bg-primary hover:bg-primary-dark text-white font-medium px-6 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-primary/20 hover:shadow-xl;
   }
   
   .container-custom {
@@ -44,21 +44,6 @@ body {
   
   .section {
     @apply py-16 md:py-24;
-  }
-  
-  .bg-grid-pattern {
-    background-image: 
-      linear-gradient(rgba(162, 136, 227, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(162, 136, 227, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
-  }
-  
-  /* ARM Logo Animation */
-  .logo-arm {
-    font-family: 'Inter', sans-serif;
-    font-weight: 900;
-    letter-spacing: 0.2em;
-    position: relative;
   }
 }
 
@@ -100,4 +85,27 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-dark);
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  .text-4xl {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+  
+  .text-5xl {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  
+  .text-6xl {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+  
+  .text-7xl {
+    font-size: 3.5rem;
+    line-height: 4rem;
+  }
 }

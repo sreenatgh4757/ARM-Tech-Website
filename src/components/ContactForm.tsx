@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Send, Calendar, Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { Send, Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -43,25 +43,25 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-card/20 to-background">
+    <section id="contact" className="py-16 md:py-20 bg-gradient-to-b from-card/20 to-background">
       <div className="container-custom mx-auto px-4">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Let's <span className="text-gradient">Transform</span> Your Business
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Ready to harness the power of intelligent automation? Get in touch with our experts 
             and discover how we can revolutionize your operations.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -125,21 +125,6 @@ const ContactForm: React.FC = () => {
                 </div>
               </div>
             </div>
-            
-            <div className="mt-8 p-6 bg-card/50 rounded-2xl">
-              <div className="flex items-center gap-3 mb-3">
-                <Calendar className="text-primary" size={20} />
-                <h4 className="font-semibold text-white">Schedule a Free Consultation</h4>
-              </div>
-              <p className="text-gray-300 text-sm mb-4">
-                Prefer to speak directly? Book a 30-minute consultation call with our experts 
-                to discuss your project requirements and explore how we can help.
-              </p>
-              <button className="bg-primary hover:bg-primary-dark text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 flex items-center gap-2">
-                <Calendar size={18} />
-                Book Free Consultation
-              </button>
-            </div>
           </motion.div>
 
           {/* Contact Form */}
@@ -154,7 +139,7 @@ const ContactForm: React.FC = () => {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="bg-card/50 backdrop-blur-sm rounded-2xl p-8">
+            <form onSubmit={handleSubmit} className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 md:p-8">
               <h3 className="text-2xl font-bold mb-6 text-white">Send us a Message</h3>
               
               <div className="mb-6">

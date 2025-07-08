@@ -1,30 +1,26 @@
 import React from 'react';
-import { Bot, MapPin, Mail, Phone, Linkedin, Twitter, Github } from 'lucide-react';
+import { MapPin, Mail, Phone, Linkedin, Twitter, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-card/80 backdrop-blur-sm pt-16 pb-6 relative">
+    <footer className="bg-card/80 backdrop-blur-sm pt-12 md:pt-16 pb-6 relative">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
       
-      <div className="container-custom mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="container-custom mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           <div>
-            <Link to="/" className="flex items-center gap-3 mb-4">
-              <div className="flex flex-col items-start">
-                <div className="text-white font-black text-xl tracking-[0.2em] mb-1 relative">
-                  A.R.M
-                  <div className="absolute inset-0 text-blue-400/20 blur-sm">A.R.M</div>
-                </div>
-                <div className="text-gray-300 text-xs font-light tracking-[0.15em] uppercase">
-                  Technologies
-                </div>
-              </div>
+            <Link to="/" className="flex items-center mb-4">
+              <img 
+                src="/PHOTO-2025-07-08-22-44-27.jpg" 
+                alt="ARM Technologies Ltd" 
+                className="h-10 w-auto"
+              />
             </Link>
             
-            <p className="text-gray-400 mb-6 leading-relaxed">
+            <p className="text-gray-400 mb-6 leading-relaxed text-sm md:text-base">
               Empowering businesses with cutting-edge AI automation solutions, 
               intelligent systems, and enterprise-grade DevOps infrastructure.
             </p>
@@ -34,11 +30,13 @@ const Footer: React.FC = () => {
             <h3 className="text-white font-semibold text-lg mb-6">Services</h3>
             <ul className="space-y-3">
               {[
-                'AI Automation',
-                'Agentic AI Systems',
-                'DevOps & Cloud Infrastructure',
-                'Contract Support',
-                'UK Sponsorship Services'
+                'Automation',
+                'Agentic AI',
+                'DevOps & Cloud',
+                'Software Development',
+                'Digital Marketing & SEO',
+                'Business Research',
+                'Startup Support'
               ].map((service, index) => (
                 <li key={index}>
                   <a href="#services" className="text-gray-400 hover:text-primary transition-colors text-sm">
@@ -55,7 +53,7 @@ const Footer: React.FC = () => {
               {[
                 { name: 'About Us', href: '#about' },
                 { name: 'Our Services', href: '#services' },
-                { name: 'Blog', href: '#blog' },
+                { name: 'Projects', href: '#projects' },
                 { name: 'Contact', href: '#contact' }
               ].map((link, index) => (
                 <li key={index}>
@@ -109,7 +107,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className="mt-12 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+        <div className="mt-8 md:mt-12 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
             &copy; {currentYear} ARM Technologies Limited. All rights reserved.
           </p>

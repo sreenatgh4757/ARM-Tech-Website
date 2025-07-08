@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Bot } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
@@ -23,23 +23,20 @@ const Navbar: React.FC = () => {
     >
       <div className="container-custom mx-auto py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="flex flex-col items-start">
-              <div className="text-white font-black text-2xl tracking-[0.2em] mb-1 relative">
-                A.R.M
-                <div className="absolute inset-0 text-blue-400/20 blur-sm">A.R.M</div>
-              </div>
-              <div className="text-gray-300 text-sm font-light tracking-[0.15em] uppercase">
-                Technologies
-              </div>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/PHOTO-2025-07-08-22-44-27.jpg" 
+              alt="ARM Technologies Ltd" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
+            <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
             <a href="#services" className="text-gray-300 hover:text-white transition-colors">Services</a>
+            <a href="#projects" className="text-gray-300 hover:text-white transition-colors">Projects</a>
             <a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a>
-            <a href="#contact" className="btn-primary">Speak to Our Experts</a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -63,6 +60,13 @@ const Navbar: React.FC = () => {
         <div className="md:hidden bg-card/95 backdrop-blur-lg border-t border-gray-800">
           <div className="container-custom mx-auto py-4 flex flex-col space-y-4">
             <a 
+              href="#about" 
+              className="text-white px-4 py-2 hover:bg-primary/10 rounded-md transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              About
+            </a>
+            <a 
               href="#services" 
               className="text-white px-4 py-2 hover:bg-primary/10 rounded-md transition-colors"
               onClick={() => setIsMenuOpen(false)}
@@ -70,18 +74,18 @@ const Navbar: React.FC = () => {
               Services
             </a>
             <a 
+              href="#projects" 
+              className="text-white px-4 py-2 hover:bg-primary/10 rounded-md transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Projects
+            </a>
+            <a 
               href="#contact" 
               className="text-white px-4 py-2 hover:bg-primary/10 rounded-md transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
-            </a>
-            <a 
-              href="#contact" 
-              className="btn-primary mx-4 text-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Speak to Our Experts
             </a>
           </div>
         </div>

@@ -11,48 +11,48 @@ const AboutUs: React.FC = () => {
 
   const values = [
     {
-      icon: <Target size={32} />,
+      icon: <Target size={28} />,
       title: "Mission-Driven",
       description: "We're committed to transforming businesses through intelligent automation and cutting-edge technology solutions."
     },
     {
-      icon: <Users size={32} />,
+      icon: <Users size={28} />,
       title: "Client-Centric",
       description: "Every solution is tailored to your unique needs, ensuring maximum impact and sustainable growth."
     },
     {
-      icon: <Lightbulb size={32} />,
+      icon: <Lightbulb size={28} />,
       title: "Innovation First",
       description: "We stay ahead of technology trends to deliver tomorrow's solutions today."
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-background to-card/20">
+    <section id="about" className="py-16 md:py-20 bg-gradient-to-b from-background to-card/20">
       <div className="container-custom mx-auto px-4">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             About <span className="text-gradient">ARM Technologies Ltd</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Founded with a vision to bridge the gap between complex technology and business success, 
             ARM Technologies Ltd is your trusted partner in digital transformation.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:mb-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-3xl font-bold mb-6 text-white">Our Story</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-white">Our Story</h3>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
                 Based in the heart of the UK's technology sector, ARM Technologies Ltd was established 
@@ -76,9 +76,9 @@ const AboutUs: React.FC = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-card/50 backdrop-blur-sm rounded-2xl p-8"
+            className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 md:p-8"
           >
-            <h4 className="text-2xl font-bold mb-6 text-white">Why Choose ARM Technologies?</h4>
+            <h4 className="text-xl md:text-2xl font-bold mb-6 text-white">Why Choose ARM Technologies?</h4>
             <ul className="space-y-4">
               {[
                 "UK-based with deep understanding of local business needs",
@@ -96,7 +96,7 @@ const AboutUs: React.FC = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {values.map((value, index) => (
             <motion.div
               key={index}
@@ -108,10 +108,10 @@ const AboutUs: React.FC = () => {
               <div className="text-primary mb-4 flex justify-center">
                 {value.icon}
               </div>
-              <h4 className="text-xl font-bold mb-3 text-white">
+              <h4 className="text-lg md:text-xl font-bold mb-3 text-white">
                 {value.title}
               </h4>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                 {value.description}
               </p>
             </motion.div>
