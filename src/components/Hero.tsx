@@ -11,6 +11,7 @@ const rotatingTexts = [
   'Your One-Stop Tech Partner for Build, Deploy, and Run'
 ];
 
+const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Subtle Background with Waves and Gradients */}
@@ -109,6 +110,7 @@ const rotatingTexts = [
       </div>
     </section>
   );
+};
 };
 
 export default Hero;
