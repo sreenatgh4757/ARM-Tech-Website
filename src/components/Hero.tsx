@@ -3,14 +3,13 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { TypeAnimation } from 'react-type-animation';
 
-const Hero: React.FC = () => {
-  const rotatingTexts = [
-    'Empowering Businesses Through Intelligent Automation',
-    'Scaling Startups with Agentic AI & DevOps',
-    'Automating Workflows with Make.com & n8n',
-    'Delivering End-to-End Product Engineering',
-    'Building Smart, Connected Digital Solutions'
-  ];
+const rotatingTexts = [
+  'Transforming Ideas into Scalable Digital Products with Zero Waste',
+  'Connecting Teams, Tools, and Data through Seamless Automation',
+  'Engineering Cloud-Native Infrastructure That Scales with You',
+  'Merging Human Creativity with Agentic AI to Redefine Operations',
+  'Your One-Stop Tech Partner for Build, Deploy, and Run'
+];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
