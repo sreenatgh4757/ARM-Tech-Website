@@ -132,24 +132,6 @@ const Footer: React.FC = () => {
             </div>
             
             <div className="space-y-4 text-sm text-gray-300">
-              <motion.p
-                className="leading-relaxed"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                Transforming businesses through intelligent automation and cutting-edge technology solutions.
-              </motion.p>
-              
-              <motion.div
-                className="flex items-start gap-3 group cursor-pointer"
-                whileHover={{ x: 5 }}
-                transition={{ duration: 0.2 }}
-              >
-                <MapPin size={16} className="mt-1 flex-shrink-0 text-primary group-hover:text-primary-dark transition-colors" />
-                <span className="group-hover:text-white transition-colors">Bournemouth, United Kingdom</span>
-              </motion.div>
               
               <motion.div
                 className="flex items-start gap-3 group"
