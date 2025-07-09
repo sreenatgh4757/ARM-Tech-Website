@@ -79,9 +79,10 @@ const Hero: React.FC = () => {
         'Solutions', 2000,
         'Platforms', 2000,
       ]}
-      wrapper="span"
-      speed={20}
+      speed={99}
+      deletionSpeed={99}
       repeat={Infinity}
+      wrapper="span"
     />
   </span>
 </h1>
