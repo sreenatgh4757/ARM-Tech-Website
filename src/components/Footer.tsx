@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
                   href="mailto:info@armtechnologies.ltd" 
                   className="hover:text-white transition-colors"
                 >
-                  contact@armtechnologies.ltd
+                  info@armtechnologies.ltd
                 </a>
               </div>
             </div>
