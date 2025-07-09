@@ -67,14 +67,14 @@ const Hero: React.FC = () => {
           className="max-w-6xl mx-auto"
         >
           {/* Rotating Animated Headlines */}
-          <div className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight min-h-[200px] md:min-h-[300px] flex items-center justify-center">
+          <div className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight min-h-[100px] md:min-h-[150px] flex items-center justify-center">
             <TypeAnimation
               sequence={[
-                rotatingTexts[0], 3000,
-                rotatingTexts[1], 3000,
-                rotatingTexts[2], 3000,
-                rotatingTexts[3], 3000,
-                rotatingTexts[4], 3000,
+                rotatingTexts[0], 2000,
+                rotatingTexts[1], 2000,
+                rotatingTexts[2], 2000,
+                rotatingTexts[3], 2000,
+                rotatingTexts[4], 2000,
               ]}
               wrapper="h1"
               speed={50}
@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
           </div>
           
           <motion.p 
-            className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
