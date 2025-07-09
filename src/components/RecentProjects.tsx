@@ -5,16 +5,12 @@ import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const RecentProjects: React.FC = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const project = {
     title: "TheGigSearch",
     category: "Staffing Platform",
-    image:
-      "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2",
+    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2",
     status: "Live Platform",
   };
 
@@ -48,7 +44,7 @@ const RecentProjects: React.FC = () => {
               alt={project.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
             <div className="absolute top-4 left-4">
               <span className="bg-primary/90 text-white text-xs font-medium px-3 py-1 rounded-full">
                 {project.category}
@@ -66,7 +62,7 @@ const RecentProjects: React.FC = () => {
               {project.title}
             </h3>
 
-            <Link 
+            <Link
               to="/case-study/thegigsearch"
               className="text-primary hover:text-primary-dark font-medium flex items-center gap-2 transition-colors"
             >
