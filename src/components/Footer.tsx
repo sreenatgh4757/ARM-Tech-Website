@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Mail, Phone, Linkedin, Twitter, Github } from 'lucide-react';
+import { MapPin, Mail, Linkedin, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
               <div className="flex items-center gap-2">
                 <Mail size={16} />
                 <a 
-                  href="mailto:contact@armtechnologies.ltd" 
+                  href="mailto:info@armtechnologies.ltd" 
                   className="hover:text-white transition-colors"
                 >
                   contact@armtechnologies.ltd
@@ -79,15 +79,6 @@ const Footer: React.FC = () => {
               >
                 <Linkedin size={18} />
                 LinkedIn
-              </a>
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-              >
-                <Github size={18} />
-                GitHub
               </a>
               <a 
                 href="https://twitter.com" 
