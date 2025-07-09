@@ -13,13 +13,15 @@ const Footer: React.FC = () => {
         
         {/* Logo + Description */}
         <div>
-          <Link to="/" className="flex items-center mb-4">
-            <img
-              src="/PHOTO-2025-07-08-22-44-27.jpg"
-              alt="ARM Technologies Ltd"
-              className="h-10 w-auto"
-            />
-          </Link>
+        <Link to="/" className="flex flex-col items-start mb-4">
+  <div className="text-white font-black text-2xl tracking-[0.2em] mb-1 relative">
+    A.R.M
+    <div className="absolute inset-0 text-blue-400/20 blur-sm">A.R.M</div>
+  </div>
+  <div className="text-gray-300 text-sm font-light tracking-[0.15em] uppercase">
+    Technologies
+  </div>
+</Link>
           <p className="text-sm text-gray-400 max-w-sm">
             Helping startups and enterprises grow through intelligent automation, scalable DevOps, and AI-powered innovation.
           </p>
