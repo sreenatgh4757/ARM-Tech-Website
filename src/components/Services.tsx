@@ -96,16 +96,19 @@ const Services: React.FC = () => {
       icon: <Cloud size={36} />,
       delay: 0.3
     },
-    {
-      title: "Software Development",
-      description: "End-to-end software development support from planning to deployment with modern technologies and best practices.",
-      features: [
-        "Full-Stack Web & Mobile Development",
-        "API Design & Integration",
-        "Database Architecture",
-        "Quality Assurance & Testing",
-        "Maintenance & Support"
-      ],
+   {
+  title: "Startup Enablement & Business Strategy",
+  description: "Comprehensive support for startups and founders — from business analysis and market validation to technical execution and launch.",
+  features: [
+    "MVP Design & Development",
+    "Business Requirements Documentation (BRD)",
+    "Market Research & Analysis",
+    "Competitive & Technical Feasibility Studies",
+    "Product Roadmapping & Go-to-Market Strategy"
+  ],
+  icon: <TrendingUp size={36} />,
+  delay: 0.6
+},
       icon: <Code size={36} />,
       delay: 0.4
     },
@@ -121,19 +124,6 @@ const Services: React.FC = () => {
       ],
       icon: <Search size={36} />,
       delay: 0.5
-    },
-    {
-      title: "Business Research & Requirements",
-      description: "Thorough business analysis and requirements documentation to ensure your project success from the ground up.",
-      features: [
-        "Business Requirements Documentation (BRD)",
-        "Market Research & Analysis",
-        "Competitive Analysis",
-        "Technical Feasibility Studies",
-        "Project Planning & Strategy"
-      ],
-      icon: <FileText size={36} />,
-      delay: 0.6
     },
     {
       title: "Startup Support",
