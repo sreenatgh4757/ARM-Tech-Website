@@ -71,19 +71,18 @@ const Hero: React.FC = () => {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight text-center">
   Modern problems solved through powerful{' '}
   <span className="inline-block text-gradient font-bold">
-    <TypeAnimation
-      sequence={[
-        'Automation', 2000,
-        'Code', 2000,
-        'Workflows', 2000,
-        'Solutions', 2000,
-        'Platforms', 2000,
-      ]}
-      speed={99}
-      deletionSpeed={99}
-      repeat={Infinity}
-      wrapper="span"
-    />
+ <AnimatePresence mode="wait">
+  <motion.span
+    key={rotatingWords[index]}
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+    transition={{ duration: 0.4 }}
+    className="absolute left-0"
+  >
+    {rotatingWords[index]}
+  </motion.span>
+</AnimatePresence>
   </span>
 </h1>
 
