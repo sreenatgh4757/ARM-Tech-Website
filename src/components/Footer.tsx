@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
     <div className="absolute inset-0 text-blue-400/20 blur-sm">A.R.M</div>
   </div>
   <div className="text-gray-300 text-sm font-light tracking-[0.15em] uppercase">
-    Technologies
+    Technologies Ltd
   </div>
 </Link>
           <p className="text-sm text-gray-400 max-w-sm">
