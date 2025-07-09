@@ -13,20 +13,9 @@ const RecentProjects: React.FC = () => {
   const project = {
     title: "TheGigSearch",
     category: "Staffing Platform",
-    description:
-      "A comprehensive staffing platform connecting businesses with skilled professionals. Built with modern web technologies and AI-powered matching algorithms to streamline the recruitment process.",
-    features: [
-      "AI-powered candidate matching system",
-      "Real-time messaging and communication",
-      "Advanced search and filtering capabilities",
-      "Automated workflow management",
-      "Comprehensive analytics dashboard",
-      "Mobile-responsive design"
-    ],
     image:
       "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2",
     status: "Live Platform",
-    tech: ["React", "Node.js", "AI/ML", "Cloud Infrastructure", "PostgreSQL"],
   };
 
   return (
@@ -43,8 +32,7 @@ const RecentProjects: React.FC = () => {
             Recent <span className="text-gradient">Project</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Discover how we've helped businesses transform their operations through
-            intelligent automation and cutting-edge technology solutions.
+            Discover how we've helped businesses with tailored technology solutions.
           </p>
         </motion.div>
 
@@ -77,41 +65,6 @@ const RecentProjects: React.FC = () => {
             <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white group-hover:text-primary transition-colors">
               {project.title}
             </h3>
-
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              {project.description}
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <h4 className="text-white font-semibold mb-3">Key Features:</h4>
-                <ul className="space-y-2">
-                  {project.features.map((feature, index) => (
-                    <li
-                      key={index}
-                      className="flex items-start gap-2 text-sm text-gray-400"
-                    >
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-white font-semibold mb-3">Technologies:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="bg-primary/20 text-primary text-xs px-3 py-1 rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
 
             <Link 
               to="/case-study/thegigsearch"
