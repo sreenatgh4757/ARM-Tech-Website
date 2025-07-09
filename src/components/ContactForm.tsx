@@ -108,7 +108,7 @@ const ContactForm: React.FC = () => {
                     href="tel:+447000000000" 
                     className="text-gray-300 hover:text-primary transition-colors"
                   >
-                    +44 7000 000 000
+                    +44 7823857523
                   </a>
                 </div>
               </div>
