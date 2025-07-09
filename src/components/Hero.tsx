@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
                 rotatingTexts[1], 2000,
                 rotatingTexts[2], 2000,
                 rotatingTexts[3], 2000,
-                rotatingTexts[4], 2000,
+                rotatingTexts[4], 2000
               ]}
               wrapper="h1"
               speed={50}
@@ -110,7 +110,6 @@ const Hero: React.FC = () => {
       </div>
     </section>
   );
-};
 };
 
 export default Hero;
