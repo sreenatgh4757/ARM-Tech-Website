@@ -6,7 +6,6 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    return (
   <footer className="bg-card/80 backdrop-blur-sm pt-12 md:pt-16 pb-6 relative">
     <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
     <div className="container-custom mx-auto px-4">
@@ -76,7 +75,6 @@ const Footer: React.FC = () => {
     </div>
   </footer>
 );
-  );
 };
 
 export default Footer;
