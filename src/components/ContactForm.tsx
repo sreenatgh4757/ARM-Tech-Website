@@ -62,72 +62,7 @@ const ContactForm: React.FC = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="text-2xl font-bold mb-8 text-white">Get in Touch</h3>
-            
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-primary/20 p-3 rounded-lg">
-                  <MapPin className="text-primary" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white mb-1">Office Location</h4>
-                  <p className="text-gray-300">
-                    London, United Kingdom
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
-                <div className="bg-primary/20 p-3 rounded-lg">
-                  <Mail className="text-primary" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white mb-1">Email</h4>
-                  <a 
-                    href="mailto:info@armtechnologies.ltd" 
-                    className="text-gray-300 hover:text-primary transition-colors"
-                  >
-                    info@armtechnologies.ltd
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
-                <div className="bg-primary/20 p-3 rounded-lg">
-                  <Phone className="text-primary" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white mb-1">Phone</h4>
-                  <a 
-                    href="tel:+447000000000" 
-                    className="text-gray-300 hover:text-primary transition-colors"
-                  >
-                    +44 7823857523
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="bg-primary/20 p-3 rounded-lg">
-                  <Clock className="text-primary" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white mb-1">Business Hours</h4>
-                  <p className="text-gray-300">
-                    Monday - Friday: 9:00 AM - 6:00 PM GMT
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Contact Form */}
+      
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
