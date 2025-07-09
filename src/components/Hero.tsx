@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { TypeAnimation } from 'react-type-animation';
 
@@ -12,6 +12,16 @@ const rotatingTexts = [
 ];
 
 const Hero: React.FC = () => {
+  const [index, setIndex] = useState(0);
+  const rotatingWords = ['automation', 'innovation', 'technology', 'solutions'];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % rotatingWords.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [rotatingWords.length]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Subtle Background with Waves and Gradients */}
@@ -68,24 +78,23 @@ const Hero: React.FC = () => {
         >
           {/* Rotating Animated Headlines */}
           <div className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight min-h-[100px] md:min-h-[150px] flex items-center justify-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight text-center">
-  Modern problems solved through powerful{' '}
-  <span className="inline-block text-gradient font-bold">
- <AnimatePresence mode="wait">
-  <motion.span
-    key={rotatingWords[index]}
-    initial={{ opacity: 0, y: 10 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -10 }}
-    transition={{ duration: 0.4 }}
-    className="absolute left-0"
-  >
-    {rotatingWords[index]}
-  </motion.span>
-</AnimatePresence>
-  </span>
-</h1>
-
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight text-center">
+              Modern problems solved through powerful{' '}
+              <span className="relative inline-block text-gradient font-bold min-w-[200px]">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={rotatingWords[index]}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.4 }}
+                    className="absolute left-0"
+                  >
+                    {rotatingWords[index]}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
+            </h1>
           </div>
           
           <motion.p 
