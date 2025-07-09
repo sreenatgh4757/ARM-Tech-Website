@@ -1,82 +1,113 @@
 import React from 'react';
 import { MapPin, Mail, Phone, Linkedin, Twitter, Github } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-  <footer className="bg-card/80 backdrop-blur-sm pt-12 md:pt-16 pb-6 relative">
-    <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-    <div className="container-custom mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-        
-        {/* Logo + Description */}
-        <div>
-        <Link to="/" className="flex flex-col items-start mb-4">
-  <div className="text-white font-black text-2xl tracking-[0.2em] mb-1 relative">
-    A.R.M
-    <div className="absolute inset-0 text-blue-400/20 blur-sm">A.R.M</div>
-  </div>
-  <div className="text-gray-300 text-sm font-light tracking-[0.15em] uppercase">
-    Technologies Ltd
-  </div>
-</Link>
-          <p className="text-sm text-gray-400 max-w-sm">
-            Helping startups and enterprises grow through intelligent automation, scalable DevOps, and AI-powered innovation.
-          </p>
-        </div>
+    <footer className="bg-card/80 backdrop-blur-sm pt-12 md:pt-16 pb-6 relative">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="container-custom mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+          
+          {/* Address */}
+          <div>
+            <div className="flex flex-col items-start mb-4">
+              <div className="text-white font-black text-2xl tracking-[0.2em] mb-1 relative">
+                ARM Technologies Ltd
+                <div className="absolute inset-0 text-blue-400/20 blur-sm">ARM Technologies Ltd</div>
+              </div>
+            </div>
+            <div className="space-y-3 text-gray-300">
+              <div className="flex items-center gap-2">
+                <MapPin size={16} />
+                <span>Bournemouth, UK</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail size={16} />
+                <a 
+                  href="mailto:contact@armtechnologies.ltd" 
+                  className="hover:text-white transition-colors"
+                >
+                  contact@armtechnologies.ltd
+                </a>
+              </div>
+            </div>
+          </div>
 
-        {/* Navigation */}
-        <div>
-          <h4 className="text-lg font-semibold mb-3">Navigation</h4>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <a href="#services" className="text-gray-300 hover:text-white transition-colors">
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="#projects" className="text-gray-300 hover:text-white transition-colors">
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="text-gray-300 hover:text-white transition-colors">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
+          {/* Services */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4 text-white">Services</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="#services" className="text-gray-300 hover:text-white transition-colors">
+                  Automation
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-gray-300 hover:text-white transition-colors">
+                  DevOps & Cloud
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-gray-300 hover:text-white transition-colors">
+                  Digital Marketing
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-gray-300 hover:text-white transition-colors">
+                  Startup Support
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-gray-300 hover:text-white transition-colors">
+                  AI & Agentic Systems
+                </a>
+              </li>
+            </ul>
+          </div>
 
-        {/* Contact Info */}
-        <div>
-          <h4 className="text-lg font-semibold mb-3">Contact Info</h4>
-          <ul className="text-sm text-gray-400 space-y-3">
-            <li className="flex items-center gap-2">
-              <MapPin size={16} /> London, United Kingdom
-            </li>
-            <li className="flex items-center gap-2">
-              <Mail size={16} /> info@armtechnologies.ltd
-            </li>
-            <li className="flex items-center gap-2">
-              <Phone size={16} /> +44 7000 000 000
-            </li>
-          </ul>
-          <div className="flex gap-4 mt-4 text-gray-400">
-            <a href="#"><Linkedin size={18} /></a>
-            <a href="#"><Twitter size={18} /></a>
-            <a href="#"><Github size={18} /></a>
+          {/* Follow Us */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+            <div className="space-y-3">
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+              >
+                <Linkedin size={18} />
+                LinkedIn
+              </a>
+              <a 
+                href="https://github.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+              >
+                <Github size={18} />
+                GitHub
+              </a>
+              <a 
+                href="https://twitter.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+              >
+                <Twitter size={18} />
+                Twitter
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="text-center text-sm text-gray-500 border-t border-white/10 pt-6 mt-10">
-        © {currentYear} ARM Technologies Limited. All rights reserved.
+        <div className="text-center text-sm text-gray-500 border-t border-white/10 pt-6 mt-10">
+          © {currentYear} ARM Technologies Limited. All rights reserved.
+        </div>
       </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
 };
 
 export default Footer;
