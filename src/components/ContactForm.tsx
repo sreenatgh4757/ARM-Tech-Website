@@ -154,7 +154,7 @@ const ContactForm: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full bg-background/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
-                  placeholder="John Doe"
+                  placeholder=" "
                 />
               </div>
               
@@ -170,7 +170,7 @@ const ContactForm: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full bg-background/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
-                  placeholder="john@company.com"
+                  placeholder=" "
                 />
               </div>
 
