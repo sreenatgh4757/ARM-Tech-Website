@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const RecentProjects: React.FC = () => {
   const [ref, inView] = useInView({
@@ -112,10 +113,13 @@ const RecentProjects: React.FC = () => {
               </div>
             </div>
 
-            <button className="text-primary hover:text-primary-dark font-medium flex items-center gap-2 transition-colors">
+            <Link 
+              to="/case-study/thegigsearch"
+              className="text-primary hover:text-primary-dark font-medium flex items-center gap-2 transition-colors"
+            >
               View Case Study
               <ExternalLink size={16} />
-            </button>
+            </Link>
           </div>
         </motion.div>
       </div>

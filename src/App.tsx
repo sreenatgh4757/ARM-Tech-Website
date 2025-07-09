@@ -7,6 +7,7 @@ import Services from './components/Services';
 import RecentProjects from './components/RecentProjects';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
+import CaseStudy from './pages/CaseStudy';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <ContactForm />
             </>
           } />
+          <Route path="/case-study/thegigsearch" element={<CaseStudy />} />
         </Routes>
         <Footer />
       </div>

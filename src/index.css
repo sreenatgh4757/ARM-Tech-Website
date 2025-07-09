@@ -109,3 +109,9 @@ body {
     line-height: 4rem;
   }
 }
+
+/* TypeAnimation specific styles */
+.type-animation {
+  display: inline-block;
+  min-height: 1.2em;
+}

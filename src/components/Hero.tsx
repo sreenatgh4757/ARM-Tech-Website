@@ -1,47 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { TypeAnimation } from 'react-type-animation';
 
 const Hero: React.FC = () => {
+  const rotatingTexts = [
+    'Empowering Businesses Through Intelligent Automation',
+    'Scaling Startups with Agentic AI & DevOps',
+    'Automating Workflows with Make.com & n8n',
+    'Delivering End-to-End Product Engineering',
+    'Building Smart, Connected Digital Solutions'
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Clean Abstract Background */}
+      {/* Subtle Background with Waves and Gradients */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-card/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-card/30"></div>
         
-        {/* Subtle Abstract Lines */}
-        <svg className="absolute inset-0 w-full h-full opacity-5" viewBox="0 0 1200 800">
-          <motion.path
-            d="M0,400 Q300,200 600,400 T1200,400"
-            stroke="url(#gradient1)"
-            strokeWidth="2"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 3, ease: "easeInOut" }}
-          />
-          <motion.path
-            d="M0,300 Q400,100 800,300 T1200,300"
-            stroke="url(#gradient2)"
-            strokeWidth="1.5"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 4, delay: 0.5, ease: "easeInOut" }}
-          />
-          <defs>
-            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#A288E3" stopOpacity="0" />
-              <stop offset="50%" stopColor="#A288E3" stopOpacity="1" />
-              <stop offset="100%" stopColor="#00C2FF" stopOpacity="0" />
-            </linearGradient>
-            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#00C2FF" stopOpacity="0" />
-              <stop offset="50%" stopColor="#00C2FF" stopOpacity="1" />
-              <stop offset="100%" stopColor="#FF8A3D" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
+        {/* Subtle Wave Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <svg className="w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="waveGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#A288E3" stopOpacity="0.3" />
+                <stop offset="50%" stopColor="#00C2FF" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="#FF8A3D" stopOpacity="0.1" />
+              </linearGradient>
+              <linearGradient id="waveGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#00C2FF" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="#A288E3" stopOpacity="0.1" />
+              </linearGradient>
+            </defs>
+            
+            <motion.path
+              d="M0,400 Q300,200 600,400 T1200,400 L1200,800 L0,800 Z"
+              fill="url(#waveGradient1)"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ duration: 2, ease: "easeInOut" }}
+            />
+            
+            <motion.path
+              d="M0,500 Q400,300 800,500 T1200,500 L1200,800 L0,800 Z"
+              fill="url(#waveGradient2)"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ duration: 2.5, delay: 0.3, ease: "easeInOut" }}
+            />
+          </svg>
+        </div>
+        
+        {/* Floating Light Circles */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-secondary/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-40 left-20 w-40 h-40 bg-accent/10 rounded-full blur-xl animate-pulse delay-2000"></div>
+        <div className="absolute bottom-20 right-10 w-28 h-28 bg-primary/10 rounded-full blur-xl animate-pulse delay-500"></div>
       </div>
       
       {/* Content */}
@@ -50,17 +64,24 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto"
+          className="max-w-6xl mx-auto"
         >
-          <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Empowering Businesses Through{' '}
-            <span className="text-gradient">Intelligent Automation</span>
-          </motion.h1>
+          {/* Rotating Animated Headlines */}
+          <div className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight min-h-[200px] md:min-h-[300px] flex items-center justify-center">
+            <TypeAnimation
+              sequence={[
+                rotatingTexts[0], 3000,
+                rotatingTexts[1], 3000,
+                rotatingTexts[2], 3000,
+                rotatingTexts[3], 3000,
+                rotatingTexts[4], 3000,
+              ]}
+              wrapper="h1"
+              speed={50}
+              className="text-gradient"
+              repeat={Infinity}
+            />
+          </div>
           
           <motion.p 
             className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed"
