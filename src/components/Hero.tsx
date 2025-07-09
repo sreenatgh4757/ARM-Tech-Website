@@ -68,9 +68,9 @@ const Hero: React.FC = () => {
         >
           {/* Rotating Animated Headlines */}
           <div className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight min-h-[100px] md:min-h-[150px] flex items-center justify-center">
-           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight text-center">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight text-center">
   Modern problems solved through powerful{' '}
-  <span className="text-gradient">
+  <span className="inline-block text-gradient font-bold">
     <TypeAnimation
       sequence={[
         'Automation', 2000,
@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
         'Platforms', 2000,
       ]}
       wrapper="span"
-      speed={50}
+      speed={20}
       repeat={Infinity}
     />
   </span>
