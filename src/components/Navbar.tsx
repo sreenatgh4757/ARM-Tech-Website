@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
                 <div className="absolute inset-0 text-blue-400/20 blur-sm">A.R.M</div>
               </div>
               <div className="text-gray-300 text-sm font-light tracking-[0.15em] uppercase">
-                Technologies
+                Technologies Ltd
               </div>
             </div>
           </Link>
