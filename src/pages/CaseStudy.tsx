@@ -342,16 +342,15 @@ const CaseStudy: React.FC = () => {
             <h2 className="text-3xl font-bold mb-8 text-white">Transforming the Future of Ethical Employment</h2>
             <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 mb-8">
               <p className="text-gray-300 leading-relaxed text-lg mb-6">
-                TheGigSearch represents more than a technological solution—it's a paradigm shift toward 
-                ethical, compliant, and mutually beneficial employment relationships. By leveraging AI-driven 
-                automation and predictive analytics, we've created a sustainable ecosystem that serves the 
-                needs of international students, businesses, and the broader UK economy.
+                TheGigSearch stands as a flexible staffing solution platform developed by ARM Technologies. 
+                Designed specifically to support businesses in finding pre-vetted, legally compliant 
+                candidates — particularly international students — the platform balances operational 
+                efficiency with ethical hiring practices. It offers streamlined onboarding, real-time 
+                availability, and analytics that help employers make smarter staffing decisions.
               </p>
               <p className="text-gray-300 leading-relaxed text-lg">
-                The platform's success demonstrates the transformative power of thoughtful technology 
-                implementation in addressing complex regulatory and social challenges. As we continue to 
-                scale and enhance our capabilities, TheGigSearch is positioned to become the definitive 
-                platform for ethical international student employment across the UK and beyond.
+                This project highlights ARM Technologies' capability in delivering business-focused, 
+                regulation-aware solutions that solve real-world employment challenges.
               </p>
             </div>
             
