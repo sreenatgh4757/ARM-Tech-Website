@@ -342,15 +342,13 @@ const CaseStudy: React.FC = () => {
             <h2 className="text-3xl font-bold mb-8 text-white">Transforming the Future of Ethical Employment</h2>
             <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 mb-8">
               <p className="text-gray-300 leading-relaxed text-lg mb-6">
-                TheGigSearch stands as a flexible staffing solution platform developed by ARM Technologies. 
-                Designed specifically to support businesses in finding pre-vetted, legally compliant 
-                candidates — particularly international students — the platform balances operational 
-                efficiency with ethical hiring practices. It offers streamlined onboarding, real-time 
-                availability, and analytics that help employers make smarter staffing decisions.
+                TheGigSearch is a purpose-built, flexible staffing solution developed by ARM Technologies to support businesses in hiring part-time, skilled and unskilled workers across roles like kitchen porter, housekeeping, barista, cleaning staff, and other support services.
+              </p>
+              <p className="text-gray-300 leading-relaxed text-lg mb-6">
+                This platform bridges the gap between businesses with short-term staffing needs and a diverse pool of candidates — including international students — who are ready to work legally and reliably. By automating matching, shift availability, and onboarding, TheGigSearch simplifies recruitment for hospitality, retail, and service industries.
               </p>
               <p className="text-gray-300 leading-relaxed text-lg">
-                This project highlights ARM Technologies' capability in delivering business-focused, 
-                regulation-aware solutions that solve real-world employment challenges.
+                This project demonstrates ARM Technologies' ability to design user-friendly platforms that address real-world staffing challenges while ensuring compliance, transparency, and operational speed.
               </p>
             </div>
             
