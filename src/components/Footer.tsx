@@ -370,6 +370,15 @@ const Footer: React.FC = () => {
             <p className="text-gray-400 text-sm">
               © {currentYear} ARM Technologies Ltd. All rights reserved.
             </p>
+            <p className="text-gray-400 text-xs mt-1">
+              Contact us at{' '}
+              <a 
+                href="mailto:info@armtechnologies.ltd" 
+                className="text-primary hover:text-primary-dark transition-colors"
+              >
+                info@armtechnologies.ltd
+              </a>
+            </p>
           </div>
           
           <div className="flex gap-6 text-sm">
