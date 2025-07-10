@@ -1,13 +1,32 @@
 import React, { useState } from 'react';
 import { MapPin, Mail, Linkedin, Twitter, Github, Send, ArrowRight, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
   const [isSubscribing, setIsSubscribing] = useState(false);
   const [subscriptionStatus, setSubscriptionStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
 
+  const handleNavClick = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      // If not on home page, navigate to home first then scroll
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+    
+    // Smooth scroll to section
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop - 80; // Account for fixed navbar
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
@@ -34,18 +53,18 @@ const Footer: React.FC = () => {
   ];
 
   const services = [
-    { name: "Automation", href: "#services" },
-    { name: "DevOps & Cloud", href: "#services" },
-    { name: "Digital Marketing", href: "#services" },
-    { name: "Startup Support", href: "#services" },
-    { name: "AI & Agentic Systems", href: "#services" }
+    { name: "Automation", sectionId: "services" },
+    { name: "DevOps & Cloud", sectionId: "services" },
+    { name: "Digital Marketing", sectionId: "services" },
+    { name: "Startup Support", sectionId: "services" },
+    { name: "AI & Agentic Systems", sectionId: "services" }
   ];
 
   const quickLinks = [
-    { name: "About Us", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" }
+    { name: "About Us", sectionId: "about" },
+    { name: "Services", sectionId: "services" },
+    { name: "Projects", sectionId: "projects" },
+    { name: "Contact", sectionId: "contact" }
   ];
 
   const containerVariants = {
@@ -185,9 +204,10 @@ const Footer: React.FC = () => {
                   viewport={{ once: true }}
                 >
                   <motion.a
-                    href={link.href}
+                    onClick={() => handleNavClick(link.sectionId)}
                     className="text-gray-300 hover:text-primary transition-all duration-300 text-sm flex items-center gap-2 group"
                     whileHover={{ x: 8 }}
+                    style={{ cursor: 'pointer' }}
                   >
                     <ArrowRight 
                       size={14} 
@@ -222,9 +242,10 @@ const Footer: React.FC = () => {
                   viewport={{ once: true }}
                 >
                   <motion.a
-                    href={service.href}
+                    onClick={() => handleNavClick(service.sectionId)}
                     className="text-gray-300 hover:text-secondary transition-all duration-300 text-sm flex items-center gap-2 group"
                     whileHover={{ x: 8 }}
+                    style={{ cursor: 'pointer' }}
                   >
                     <ArrowRight 
                       size={14} 
@@ -385,10 +406,15 @@ const Footer: React.FC = () => {
             {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((link, index) => (
               <motion.a
                 key={index}
-                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  // These would typically link to dedicated pages
+                  console.log(`Navigate to ${link}`);
+                }}
                 className="text-gray-400 hover:text-primary transition-colors"
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.2 }}
+                style={{ cursor: 'pointer' }}
               >
                 {link}
               </motion.a>

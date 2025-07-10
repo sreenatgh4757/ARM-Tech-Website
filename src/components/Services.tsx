@@ -2,6 +2,7 @@ import React from 'react';
 import { Bot, Cpu, Cloud, Code, Search, Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useLocation } from 'react-router-dom';
 
 const services = [
   {
@@ -95,7 +96,23 @@ const Services: React.FC = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+  const location = useLocation();
 
+  const handleContactClick = () => {
+    if (location.pathname !== '/') {
+      window.location.href = '/#contact';
+      return;
+    }
+    
+    const element = document.getElementById('contact');
+    if (element) {
+      const offsetTop = element.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -310,7 +327,7 @@ const Services: React.FC = () => {
           transition={{ duration: 0.8, delay: 1 }}
         >
           <motion.a
-            href="#contact"
+            onClick={handleContactClick}
             className="btn-primary text-lg px-8 py-4 inline-flex items-center gap-3"
             whileHover={{ 
               scale: 1.05,
@@ -318,6 +335,7 @@ const Services: React.FC = () => {
             }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }}
+            style={{ cursor: 'pointer' }}
           >
             Get Started Today
             <motion.div

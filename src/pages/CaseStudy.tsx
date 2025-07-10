@@ -4,6 +4,9 @@ import { ArrowLeft, Calendar, Users, Zap, Target, CheckCircle, Smartphone, Monit
 import { Link } from 'react-router-dom';
 
 const CaseStudy: React.FC = () => {
+  const handleContactClick = () => {
+    window.location.href = '/#contact';
+  };
   return (
     <div className="pt-20 pb-20 min-h-screen">
       <div className="container-custom mx-auto px-4">
@@ -353,7 +356,8 @@ const CaseStudy: React.FC = () => {
             </div>
             
             <Link 
-              to="/#contact"
+              to="/"
+              onClick={handleContactClick}
               className="btn-primary text-lg px-8 py-4 inline-flex items-center gap-3"
             >
               Transform Your Business Today

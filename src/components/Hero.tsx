@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { TypeAnimation } from 'react-type-animation';
+import { useLocation } from 'react-router-dom';
 
 const rotatingTexts = [
   'Transforming Ideas into Scalable Digital Products with Zero Waste',
@@ -14,7 +15,23 @@ const rotatingTexts = [
 const Hero: React.FC = () => {
   const [index, setIndex] = useState(0);
   const rotatingWords = ['automation', 'innovation', 'technology', 'solutions'];
+  const location = useLocation();
 
+  const handleContactClick = () => {
+    if (location.pathname !== '/') {
+      window.location.href = '/#contact';
+      return;
+    }
+    
+    const element = document.getElementById('contact');
+    if (element) {
+      const offsetTop = element.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % rotatingWords.length);
@@ -113,13 +130,13 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex justify-center"
           >
-            <a 
-              href="#contact" 
+            <button 
+              onClick={handleContactClick}
               className="btn-primary text-lg px-8 py-4 flex items-center gap-3 hover:scale-105 transform transition-all"
             >
               Let's Automate Your Business
               <ArrowRight size={20} />
-            </a>
+            </button>
           </motion.div>
         </motion.div>
       </div>
