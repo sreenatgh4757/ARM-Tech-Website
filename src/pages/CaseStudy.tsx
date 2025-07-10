@@ -333,54 +333,6 @@ const CaseStudy: React.FC = () => {
             </div>
           </div>
 
-          {/* Technologies Used */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-white text-center">Technologies Powering Innovation</h2>
-            <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div>
-                  <h4 className="text-white font-semibold mb-4">AI & Machine Learning</h4>
-                  <div className="space-y-2">
-                    {['TensorFlow', 'Python', 'Natural Language Processing', 'Predictive Analytics', 'Computer Vision'].map((tech, index) => (
-                      <span key={index} className="block bg-primary/20 text-primary text-sm px-3 py-1 rounded-full">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-4">Frontend Platform</h4>
-                  <div className="space-y-2">
-                    {['React.js', 'TypeScript', 'Tailwind CSS', 'Progressive Web App', 'Real-time Updates'].map((tech, index) => (
-                      <span key={index} className="block bg-secondary/20 text-secondary text-sm px-3 py-1 rounded-full">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-4">Backend Infrastructure</h4>
-                  <div className="space-y-2">
-                    {['Node.js', 'PostgreSQL', 'Redis', 'GraphQL', 'Microservices'].map((tech, index) => (
-                      <span key={index} className="block bg-accent/20 text-accent text-sm px-3 py-1 rounded-full">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-4">Security & Compliance</h4>
-                  <div className="space-y-2">
-                    {['AWS Security', 'GDPR Compliance', 'Data Encryption', 'Audit Trails', 'Identity Verification'].map((tech, index) => (
-                      <span key={index} className="block bg-primary/20 text-primary text-sm px-3 py-1 rounded-full">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
           {/* Conclusion */}
           <div className="text-center mb-12">
