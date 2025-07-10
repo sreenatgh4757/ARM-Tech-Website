@@ -8,6 +8,7 @@ import Services from './components/Services';
 import RecentProjects from './components/RecentProjects';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
+import FloatingContactButton from './components/FloatingContactButton';
 import CaseStudy from './pages/CaseStudy';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/case-study/thegigsearch" element={<CaseStudy />} />
         </Routes>
         <Footer />
+        <FloatingContactButton />
       </div>
     </Router>
   );
