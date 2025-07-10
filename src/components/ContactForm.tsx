@@ -2,15 +2,20 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Send, Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { ContactService } from '../services/contactService';
+import type { ContactSubmissionData } from '../lib/supabase';
 
 const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
+  const [formData, setFormData] = useState<ContactSubmissionData>({
+    full_name: '',
     email: '',
+    subject: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [enquiryId, setEnquiryId] = useState<string>('');
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -20,23 +25,48 @@ const ContactForm: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: undefined }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate form using ContactService
+    const validation = ContactService.validateForm(formData);
+    if (!validation.isValid) {
+      setErrors(validation.errors);
+      return;
+    }
+    
     setIsSubmitting(true);
+    setErrors({});
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setIsSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
+      const result = await ContactService.submitContactForm(formData);
+      
+      if (result.success && result.enquiry_id) {
+        setIsSuccess(true);
+        setEnquiryId(result.enquiry_id);
+        setFormData({ full_name: '', email: '', subject: '', message: '' });
+        
+        // Reset success state after 5 seconds
+        setTimeout(() => {
+          setIsSuccess(false);
+          setEnquiryId('');
+        }, 5000);
+      } else {
+        throw new Error(result.error || 'Submission failed');
+      }
+      
     } catch (error) {
       console.error('Form submission error:', error);
+      if (error instanceof Error) {
+        setErrors({ general: error.message });
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -135,7 +165,18 @@ const ContactForm: React.FC = () => {
           >
             {isSuccess && (
               <div className="bg-green-500/20 text-green-400 p-4 rounded-lg mb-6">
-                Thank you for your message! We'll get back to you within 24 hours.
+                <p className="font-medium">Thank you for your message!</p>
+                <p className="text-sm">
+                  Reference: {enquiryId}<br />
+                  We'll get back to you within 24 hours.
+                </p>
+              </div>
+            )}
+
+            {errors.general && (
+              <div className="bg-red-500/20 text-red-400 p-4 rounded-lg mb-6">
+                <p className="font-medium">Submission failed</p>
+                <p className="text-sm">{errors.general}</p>
               </div>
             )}
 
@@ -143,19 +184,24 @@ const ContactForm: React.FC = () => {
               <h3 className="text-2xl font-bold mb-6 text-white">Send us a Message</h3>
               
               <div className="mb-6">
-                <label htmlFor="name" className="block text-white font-medium mb-2">
+                <label htmlFor="full_name" className="block text-white font-medium mb-2">
                   Full Name *
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
+                  id="full_name"
+                  name="full_name"
                   required
-                  value={formData.name}
+                  value={formData.full_name}
                   onChange={handleChange}
-                  className="w-full bg-background/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                  className={`w-full bg-background/50 border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition ${
+                    errors.full_name ? 'border-red-500' : 'border-gray-700'
+                  }`}
                   placeholder=" "
                 />
+                {errors.full_name && (
+                  <p className="text-red-400 text-sm mt-1">{errors.full_name}</p>
+                )}
               </div>
               
               <div className="mb-6">
@@ -169,9 +215,35 @@ const ContactForm: React.FC = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full bg-background/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                  className={`w-full bg-background/50 border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition ${
+                    errors.email ? 'border-red-500' : 'border-gray-700'
+                  }`}
                   placeholder=" "
                 />
+                {errors.email && (
+                  <p className="text-red-400 text-sm mt-1">{errors.email}</p>
+                )}
+              </div>
+
+              <div className="mb-6">
+                <label htmlFor="subject" className="block text-white font-medium mb-2">
+                  Subject *
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className={`w-full bg-background/50 border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition ${
+                    errors.subject ? 'border-red-500' : 'border-gray-700'
+                  }`}
+                  placeholder="What's this about?"
+                />
+                {errors.subject && (
+                  <p className="text-red-400 text-sm mt-1">{errors.subject}</p>
+                )}
               </div>
 
               <div className="mb-6">
@@ -185,9 +257,14 @@ const ContactForm: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full bg-background/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition resize-none"
+                  className={`w-full bg-background/50 border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition resize-none ${
+                    errors.message ? 'border-red-500' : 'border-gray-700'
+                  }`}
                   placeholder="Tell us about your project requirements, timeline, and how we can help transform your business..."
                 ></textarea>
+                {errors.message && (
+                  <p className="text-red-400 text-sm mt-1">{errors.message}</p>
+                )}
               </div>
 
               <button
@@ -203,7 +280,7 @@ const ContactForm: React.FC = () => {
                 ) : (
                   <>
                     <Send size={20} />
-                    Send Message
+                    {isSuccess ? 'Message Sent!' : 'Send Message'}
                   </>
                 )}
               </button>

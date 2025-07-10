@@ -1,59 +1,32 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Mail, User, FileText } from 'lucide-react';
+import { ContactService } from '../services/contactService';
+import type { ContactSubmissionData } from '../lib/supabase';
 
-interface FormData {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
+interface FormData extends ContactSubmissionData {
+  full_name: string;
 }
 
 const FloatingContactButton: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({
-    name: '',
+    full_name: '',
     email: '',
     subject: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [errors, setErrors] = useState<Partial<FormData>>({});
-
-  const validateForm = (): boolean => {
-    const newErrors: Partial<FormData> = {};
-    
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-    
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-    
-    if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required';
-    }
-    
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters long';
-    }
-    
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [enquiryId, setEnquiryId] = useState<string>('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     
     // Clear error for this field when user starts typing
-    if (errors[name as keyof FormData]) {
+    if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: undefined }));
     }
   };
@@ -61,32 +34,41 @@ const FloatingContactButton: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!validateForm()) {
+    // Validate form using ContactService
+    const validation = ContactService.validateForm(formData);
+    if (!validation.isValid) {
+      setErrors(validation.errors);
       return;
     }
     
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setErrors({});
     
     try {
-      // Simulate API call - replace with actual backend integration
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const result = await ContactService.submitContactForm(formData);
       
-      // Here you would typically send the data to your backend
-      console.log('Form submitted:', formData);
-      
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Auto-close modal after success
-      setTimeout(() => {
-        setIsOpen(false);
-        setSubmitStatus('idle');
-      }, 2000);
+      if (result.success && result.enquiry_id) {
+        setSubmitStatus('success');
+        setEnquiryId(result.enquiry_id);
+        setFormData({ full_name: '', email: '', subject: '', message: '' });
+        
+        // Auto-close modal after success
+        setTimeout(() => {
+          setIsOpen(false);
+          setSubmitStatus('idle');
+          setEnquiryId('');
+        }, 4000);
+      } else {
+        throw new Error(result.error || 'Submission failed');
+      }
       
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
+      if (error instanceof Error) {
+        setErrors({ general: error.message });
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -95,6 +77,7 @@ const FloatingContactButton: React.FC = () => {
   const closeModal = () => {
     setIsOpen(false);
     setSubmitStatus('idle');
+    setEnquiryId('');
     setErrors({});
   };
 
@@ -181,7 +164,10 @@ const FloatingContactButton: React.FC = () => {
                   </div>
                   <div>
                     <p className="font-medium">Message sent successfully!</p>
-                    <p className="text-sm text-green-300">We'll get back to you within 24 hours.</p>
+                    <p className="text-sm text-green-300">
+                      Reference: {enquiryId}<br />
+                      We'll get back to you within 24 hours.
+                    </p>
                   </div>
                 </motion.div>
               )}
@@ -189,13 +175,16 @@ const FloatingContactButton: React.FC = () => {
               {/* Error Message */}
               {submitStatus === 'error' && (
                 <motion.div
-                  className="bg-red-500/20 border border-red-500/30 text-red-400 p-4 rounded-lg mb-6"
+                  className="bg-red-500/20 border border-red-500/30 text-red-400 p-4 rounded-lg mb-6 space-y-2"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                 >
                   <p className="font-medium">Failed to send message</p>
-                  <p className="text-sm text-red-300">Please try again or contact us directly.</p>
+                  {errors.general && (
+                    <p className="text-sm text-red-300">{errors.general}</p>
+                  )}
+                  <p className="text-sm text-red-300">Please try again or contact us directly at info@armtechnologies.ltd</p>
                 </motion.div>
               )}
 
@@ -209,22 +198,22 @@ const FloatingContactButton: React.FC = () => {
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                    id="full_name"
+                    name="full_name"
+                    value={formData.full_name}
                     onChange={handleInputChange}
                     className={`w-full bg-background/50 border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 ${
-                      errors.name ? 'border-red-500' : 'border-gray-700'
+                      errors.full_name ? 'border-red-500' : 'border-gray-700'
                     }`}
                     placeholder="Enter your full name"
                   />
-                  {errors.name && (
+                  {errors.full_name && (
                     <motion.p
                       className="text-red-400 text-sm mt-1"
                       initial={{ opacity: 0, y: -5 }}
                       animate={{ opacity: 1, y: 0 }}
                     >
-                      {errors.name}
+                      {errors.full_name}
                     </motion.p>
                   )}
                 </div>
@@ -311,7 +300,7 @@ const FloatingContactButton: React.FC = () => {
                     </motion.p>
                   )}
                   <p className="text-gray-400 text-xs mt-1">
-                    {formData.message.length}/500 characters
+                    {formData.message.length}/2000 characters
                   </p>
                 </div>
 
