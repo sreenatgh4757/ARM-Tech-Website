@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, Users, Zap, Target, CheckCircle, Smartphone, Monitor, TrendingUp, Clock, DollarSign, BarChart3 } from 'lucide-react';
+import { ArrowLeft, Calendar, Users, Zap, Target, CheckCircle, Smartphone, Monitor, TrendingUp, Clock, DollarSign, BarChart3, Shield, Globe, Award, BookOpen, Building } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const CaseStudy: React.FC = () => {
@@ -24,20 +24,21 @@ const CaseStudy: React.FC = () => {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              TheGigSearch – <span className="text-gradient">Employer Dashboard Transformation</span>
+              Revolutionizing <span className="text-gradient">Ethical Gig Work Solutions</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Revolutionizing the employer hiring experience through an intuitive, feature-rich dashboard 
-              available on both mobile and desktop platforms with seamless integration of core functionalities.
+              How ARM Technologies transformed the gig economy landscape for international students in the UK 
+              through their innovative AI-driven platform, connecting 100+ students with 17 employers while 
+              ensuring full legal compliance and reducing business overhead by 30%.
             </p>
           </div>
 
-          {/* Hero Image - Mobile & Desktop Interfaces */}
+          {/* Hero Image */}
           <div className="relative mb-16">
             <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8">
               <img
-                src="/Demo_employer (2).png"
-                alt="TheGigSearch Employer Dashboard - Mobile and Desktop Interfaces"
+                src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=2"
+                alt="TheGigSearch Platform - Connecting International Students with Ethical Employment"
                 className="w-full rounded-xl shadow-2xl"
               />
               <div className="absolute top-12 right-12">
@@ -48,94 +49,90 @@ const CaseStudy: React.FC = () => {
             </div>
           </div>
 
+          {/* Introduction */}
+          <div className="mb-16">
+            <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8">
+              <h2 className="text-3xl font-bold mb-6 text-white">Introduction</h2>
+              <div className="space-y-4 text-gray-300 leading-relaxed">
+                <p>
+                  The UK's international student population faces a complex web of employment challenges, 
+                  from navigating visa restrictions to finding legitimate work opportunities that comply 
+                  with immigration laws. With over 600,000 international students in the UK, many struggle 
+                  to secure part-time employment that fits within their 20-hour weekly limit while pursuing 
+                  their studies.
+                </p>
+                <p>
+                  ARM Technologies recognized this critical gap in the market and developed TheGigSearch, 
+                  an innovative platform that bridges the divide between international students seeking 
+                  flexible work and businesses requiring skilled, compliant workforce solutions. Our mission 
+                  was clear: create a technology-driven ecosystem that ensures legal compliance while 
+                  maximizing opportunities for both students and employers.
+                </p>
+                <p>
+                  Today, TheGigSearch has successfully connected over 100 international students with 17 
+                  verified employers across the UK, creating a sustainable model that benefits all stakeholders 
+                  while maintaining the highest standards of legal and ethical employment practices.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Project Overview */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
             <div className="lg:col-span-2">
-              <h2 className="text-3xl font-bold mb-6 text-white">Project Overview</h2>
+              <h2 className="text-3xl font-bold mb-6 text-white">The Challenge</h2>
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
-                  TheGigSearch's employer dashboard transformation represents a complete reimagining of how 
-                  businesses connect with skilled professionals. Our team developed a comprehensive platform 
-                  that unifies the entire hiring process into a single, intuitive interface.
+                  International students in the UK face a dual challenge: strict visa regulations limiting 
+                  their work hours to 20 per week, and a fragmented job market that often lacks transparency 
+                  about compliance requirements. Many students unknowingly violate their visa conditions, 
+                  risking their academic future and immigration status.
                 </p>
                 <p>
-                  The solution focuses on seamless integration of core functionalities with a user-centered 
-                  design approach that drives measurable results. From one-click job posting to real-time 
-                  analytics, every feature was crafted to enhance the employer experience.
+                  Simultaneously, businesses struggle with the complexity of hiring international students. 
+                  The administrative burden of verifying work eligibility, tracking hours, and ensuring 
+                  compliance with immigration law creates significant overhead costs and legal risks. 
+                  Traditional recruitment processes are ill-equipped to handle these specialized requirements.
                 </p>
                 <p>
-                  Built with mobile-first principles, the dashboard ensures employers can manage their hiring 
-                  process effectively whether they're at their desk or on the go, maintaining full functionality 
-                  across all devices.
+                  The existing hiring landscape presented several critical pain points: manual verification 
+                  processes prone to error, lack of real-time hour tracking systems, limited visibility 
+                  into student availability, and absence of automated compliance monitoring. These challenges 
+                  resulted in missed opportunities, legal complications, and inefficient resource allocation 
+                  for both students and employers.
                 </p>
               </div>
             </div>
 
             <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6">
-              <h3 className="text-xl font-bold mb-4 text-white">Project Details</h3>
+              <h3 className="text-xl font-bold mb-4 text-white">Challenge Metrics</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <Calendar className="text-primary" size={20} />
+                  <BookOpen className="text-accent" size={20} />
                   <div>
-                    <p className="text-white font-medium">Timeline</p>
-                    <p className="text-gray-400 text-sm">8 months</p>
+                    <p className="text-white font-medium">Students Affected</p>
+                    <p className="text-gray-400 text-sm">600,000+ in UK</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Users className="text-primary" size={20} />
+                  <Clock className="text-accent" size={20} />
                   <div>
-                    <p className="text-white font-medium">Team Size</p>
-                    <p className="text-gray-400 text-sm">12 specialists</p>
+                    <p className="text-white font-medium">Work Limit</p>
+                    <p className="text-gray-400 text-sm">20 hours/week</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Target className="text-primary" size={20} />
+                  <Shield className="text-accent" size={20} />
                   <div>
-                    <p className="text-white font-medium">Focus</p>
-                    <p className="text-gray-400 text-sm">Employer Experience</p>
+                    <p className="text-white font-medium">Compliance Risk</p>
+                    <p className="text-gray-400 text-sm">High for violations</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Smartphone className="text-primary" size={20} />
+                  <DollarSign className="text-accent" size={20} />
                   <div>
-                    <p className="text-white font-medium">Platforms</p>
-                    <p className="text-gray-400 text-sm">Mobile & Desktop</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* The Challenge */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-white text-center">The Challenge</h2>
-            <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8">
-              <p className="text-gray-300 mb-6 text-center leading-relaxed">
-                The fragmented hiring landscape where employers struggled with multiple pain points:
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-300">Managing multiple job postings across platforms</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-300">Tracking candidate applications efficiently</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-300">Handling billing and subscriptions</span>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-300">Accessing real-time hiring analytics</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-300">Operating effectively on mobile devices</span>
+                    <p className="text-white font-medium">Business Overhead</p>
+                    <p className="text-gray-400 text-sm">30-40% additional</p>
                   </div>
                 </div>
               </div>
@@ -144,152 +141,193 @@ const CaseStudy: React.FC = () => {
 
           {/* Our Solution */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-white text-center">Our Solution</h2>
-            <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8">
-              <p className="text-gray-300 mb-6 text-center leading-relaxed">
-                A unified dashboard that brings together all hiring functionalities:
+            <h2 className="text-3xl font-bold mb-8 text-white text-center">Our AI-Driven Solution</h2>
+            <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 mb-8">
+              <p className="text-gray-300 mb-6 text-center leading-relaxed text-lg">
+                TheGigSearch revolutionizes the international student employment landscape through intelligent 
+                automation and predictive compliance systems.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={16} />
-                    <span className="text-gray-300">One-click job posting system</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={16} />
-                    <span className="text-gray-300">Real-time candidate tracking</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={16} />
-                    <span className="text-gray-300">Automated billing and subscription management</span>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={16} />
-                    <span className="text-gray-300">Comprehensive analytics suite</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={16} />
-                    <span className="text-gray-300">Fully responsive design</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Key Features & Implementation */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-white text-center">Key Features & Implementation</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               
-              {/* Intelligent Job Posting */}
-              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 hover:bg-card/70 transition-all duration-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <Zap className="text-primary" size={24} />
-                  <h4 className="text-lg font-bold text-white">Intelligent Job Posting</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-white font-bold mb-4 flex items-center gap-2">
+                    <Zap className="text-primary" size={20} />
+                    Automated Compliance Engine
+                  </h4>
+                  <ul className="space-y-2 text-gray-300 text-sm">
+                    <li>• Real-time visa status verification</li>
+                    <li>• Automated hour tracking and alerts</li>
+                    <li>• Compliance dashboard for employers</li>
+                    <li>• Legal requirement notifications</li>
+                  </ul>
                 </div>
+                
+                <div>
+                  <h4 className="text-white font-bold mb-4 flex items-center gap-2">
+                    <Target className="text-secondary" size={20} />
+                    Intelligent Matching System
+                  </h4>
+                  <ul className="space-y-2 text-gray-300 text-sm">
+                    <li>• AI-powered skill and schedule matching</li>
+                    <li>• Predictive availability algorithms</li>
+                    <li>• Cultural and language preferences</li>
+                    <li>• Academic schedule integration</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6">
+                <h4 className="text-white font-bold mb-4 flex items-center gap-2">
+                  <Shield className="text-accent" size={20} />
+                  Direct Employment Model
+                </h4>
+                <p className="text-gray-300 text-sm mb-4">
+                  Our platform facilitates direct employment relationships, ensuring students receive 
+                  full employment rights and benefits while maintaining compliance with UK immigration law.
+                </p>
                 <ul className="space-y-2 text-gray-300 text-sm">
-                  <li>• Step-by-step posting wizard</li>
-                  <li>• Template library</li>
-                  <li>• Smart matching algorithm</li>
-                  <li>• Multi-platform preview</li>
+                  <li>• Full employment contracts</li>
+                  <li>• Statutory benefits inclusion</li>
+                  <li>• Career development pathways</li>
+                  <li>• Professional reference system</li>
                 </ul>
               </div>
 
-              {/* Subscription Management */}
-              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 hover:bg-card/70 transition-all duration-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <Users className="text-secondary" size={24} />
-                  <h4 className="text-lg font-bold text-white">Subscription Management</h4>
-                </div>
+              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6">
+                <h4 className="text-white font-bold mb-4 flex items-center gap-2">
+                  <BarChart3 className="text-primary" size={20} />
+                  Predictive Analytics Suite
+                </h4>
+                <p className="text-gray-300 text-sm mb-4">
+                  Advanced analytics provide insights into workforce planning, compliance trends, 
+                  and optimization opportunities for both students and employers.
+                </p>
                 <ul className="space-y-2 text-gray-300 text-sm">
-                  <li>• Flexible plan options</li>
-                  <li>• Usage tracking</li>
-                  <li>• Upgrade/downgrade capabilities</li>
-                  <li>• Automated renewals</li>
-                </ul>
-              </div>
-
-              {/* Financial Tools */}
-              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 hover:bg-card/70 transition-all duration-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <DollarSign className="text-accent" size={24} />
-                  <h4 className="text-lg font-bold text-white">Financial Tools</h4>
-                </div>
-                <ul className="space-y-2 text-gray-300 text-sm">
-                  <li>• Automated invoicing</li>
-                  <li>• Payment history</li>
-                  <li>• Expense tracking</li>
-                  <li>• Budget analytics</li>
-                </ul>
-              </div>
-
-              {/* Analytics Dashboard */}
-              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 hover:bg-card/70 transition-all duration-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <BarChart3 className="text-primary" size={24} />
-                  <h4 className="text-lg font-bold text-white">Analytics Dashboard</h4>
-                </div>
-                <ul className="space-y-2 text-gray-300 text-sm">
-                  <li>• Hiring metrics</li>
-                  <li>• Engagement statistics</li>
-                  <li>• ROI calculations</li>
-                  <li>• Custom reporting</li>
+                  <li>• Demand forecasting algorithms</li>
+                  <li>• Performance optimization insights</li>
+                  <li>• Compliance risk assessment</li>
+                  <li>• ROI tracking and reporting</li>
                 </ul>
               </div>
             </div>
           </div>
 
-          {/* Design Approach */}
+          {/* Results & Impact */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-white text-center">Design Approach</h2>
+            <h2 className="text-3xl font-bold mb-8 text-white text-center">Measurable Results & Impact</h2>
+            
+            {/* Key Metrics */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 text-center">
+                <div className="text-4xl font-bold text-primary mb-2">30%</div>
+                <p className="text-white font-medium mb-2">Overhead Reduction</p>
+                <p className="text-gray-400 text-sm">For participating businesses</p>
+              </div>
+              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 text-center">
+                <div className="text-4xl font-bold text-secondary mb-2">100+</div>
+                <p className="text-white font-medium mb-2">Students Connected</p>
+                <p className="text-gray-400 text-sm">Across UK universities</p>
+              </div>
+              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 text-center">
+                <div className="text-4xl font-bold text-accent mb-2">17</div>
+                <p className="text-white font-medium mb-2">Verified Employers</p>
+                <p className="text-gray-400 text-sm">Compliance-certified businesses</p>
+              </div>
+              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 text-center">
+                <div className="text-4xl font-bold text-primary mb-2">95%</div>
+                <p className="text-white font-medium mb-2">Compliance Rate</p>
+                <p className="text-gray-400 text-sm">Zero visa violations</p>
+              </div>
+            </div>
+
             <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8">
-              <p className="text-gray-300 mb-6 text-center leading-relaxed">
-                Our user-centered methodology ensured every design decision was backed by real user needs:
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <h3 className="text-2xl font-bold mb-6 text-white">Transformational Outcomes</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-white font-semibold mb-4">For Students</h4>
+                  <ul className="space-y-3 text-gray-300">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={16} />
+                      <span>Streamlined onboarding process reducing time-to-employment by 60%</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={16} />
+                      <span>Automated compliance monitoring ensuring visa requirement adherence</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={16} />
+                      <span>AI-powered job matching increasing placement success rate to 85%</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={16} />
+                      <span>Professional development opportunities and career pathway guidance</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="text-white font-semibold mb-4">For Employers</h4>
+                  <ul className="space-y-3 text-gray-300">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="text-secondary mt-0.5 flex-shrink-0" size={16} />
+                      <span>30% reduction in administrative overhead through automation</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="text-secondary mt-0.5 flex-shrink-0" size={16} />
+                      <span>Zero compliance violations with built-in legal safeguards</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="text-secondary mt-0.5 flex-shrink-0" size={16} />
+                      <span>Access to pre-vetted, skilled international talent pool</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="text-secondary mt-0.5 flex-shrink-0" size={16} />
+                      <span>Real-time analytics and workforce optimization insights</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Future Scaling */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold mb-8 text-white text-center">Future Scaling & Innovation</h2>
+            <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="text-center">
                   <div className="bg-primary/20 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <Users className="text-primary" size={24} />
+                    <Globe className="text-primary" size={24} />
                   </div>
-                  <h4 className="text-white font-semibold mb-2">Employer Interviews</h4>
-                  <p className="text-gray-400 text-sm">In-depth research with hiring managers</p>
+                  <h4 className="text-white font-semibold mb-3">National Expansion</h4>
+                  <p className="text-gray-400 text-sm">
+                    Scaling to cover all major UK cities and university towns, targeting 10,000+ 
+                    student connections by 2026.
+                  </p>
                 </div>
+                
                 <div className="text-center">
                   <div className="bg-secondary/20 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <Target className="text-secondary" size={24} />
+                    <Zap className="text-secondary" size={24} />
                   </div>
-                  <h4 className="text-white font-semibold mb-2">Usability Testing</h4>
-                  <p className="text-gray-400 text-sm">Continuous validation with real users</p>
+                  <h4 className="text-white font-semibold mb-3">AI Enhancement</h4>
+                  <p className="text-gray-400 text-sm">
+                    Advanced machine learning models for predictive career matching and 
+                    personalized development recommendations.
+                  </p>
                 </div>
+                
                 <div className="text-center">
                   <div className="bg-accent/20 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <Zap className="text-accent" size={24} />
+                    <Building className="text-accent" size={24} />
                   </div>
-                  <h4 className="text-white font-semibold mb-2">Iterative Prototyping</h4>
-                  <p className="text-gray-400 text-sm">Rapid iteration based on feedback</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-primary/20 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <Smartphone className="text-primary" size={24} />
-                  </div>
-                  <h4 className="text-white font-semibold mb-2">Mobile-First Design</h4>
-                  <p className="text-gray-400 text-sm">Optimized for mobile usage patterns</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-secondary/20 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <CheckCircle className="text-secondary" size={24} />
-                  </div>
-                  <h4 className="text-white font-semibold mb-2">Accessibility Compliance</h4>
-                  <p className="text-gray-400 text-sm">WCAG 2.1 AA standards</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-accent/20 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <Monitor className="text-accent" size={24} />
-                  </div>
-                  <h4 className="text-white font-semibold mb-2">Cross-Platform</h4>
-                  <p className="text-gray-400 text-sm">Seamless desktop and mobile experience</p>
+                  <h4 className="text-white font-semibold mb-3">Enterprise Integration</h4>
+                  <p className="text-gray-400 text-sm">
+                    Seamless integration with major HR systems and university career services 
+                    for comprehensive ecosystem coverage.
+                  </p>
                 </div>
               </div>
             </div>
@@ -297,13 +335,13 @@ const CaseStudy: React.FC = () => {
 
           {/* Technologies Used */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-white text-center">Technologies Used</h2>
+            <h2 className="text-3xl font-bold mb-8 text-white text-center">Technologies Powering Innovation</h2>
             <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div>
-                  <h4 className="text-white font-semibold mb-4">Frontend</h4>
+                  <h4 className="text-white font-semibold mb-4">AI & Machine Learning</h4>
                   <div className="space-y-2">
-                    {['React.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'React Native'].map((tech, index) => (
+                    {['TensorFlow', 'Python', 'Natural Language Processing', 'Predictive Analytics', 'Computer Vision'].map((tech, index) => (
                       <span key={index} className="block bg-primary/20 text-primary text-sm px-3 py-1 rounded-full">
                         {tech}
                       </span>
@@ -311,9 +349,9 @@ const CaseStudy: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-4">Backend</h4>
+                  <h4 className="text-white font-semibold mb-4">Frontend Platform</h4>
                   <div className="space-y-2">
-                    {['Node.js', 'Express.js', 'PostgreSQL', 'Redis', 'GraphQL'].map((tech, index) => (
+                    {['React.js', 'TypeScript', 'Tailwind CSS', 'Progressive Web App', 'Real-time Updates'].map((tech, index) => (
                       <span key={index} className="block bg-secondary/20 text-secondary text-sm px-3 py-1 rounded-full">
                         {tech}
                       </span>
@@ -321,9 +359,9 @@ const CaseStudy: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-4">AI/ML</h4>
+                  <h4 className="text-white font-semibold mb-4">Backend Infrastructure</h4>
                   <div className="space-y-2">
-                    {['TensorFlow', 'Python', 'NLP', 'Recommendation Engine', 'Analytics'].map((tech, index) => (
+                    {['Node.js', 'PostgreSQL', 'Redis', 'GraphQL', 'Microservices'].map((tech, index) => (
                       <span key={index} className="block bg-accent/20 text-accent text-sm px-3 py-1 rounded-full">
                         {tech}
                       </span>
@@ -331,9 +369,9 @@ const CaseStudy: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-4">Infrastructure</h4>
+                  <h4 className="text-white font-semibold mb-4">Security & Compliance</h4>
                   <div className="space-y-2">
-                    {['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Monitoring'].map((tech, index) => (
+                    {['AWS Security', 'GDPR Compliance', 'Data Encryption', 'Audit Trails', 'Identity Verification'].map((tech, index) => (
                       <span key={index} className="block bg-primary/20 text-primary text-sm px-3 py-1 rounded-full">
                         {tech}
                       </span>
@@ -344,65 +382,29 @@ const CaseStudy: React.FC = () => {
             </div>
           </div>
 
-          {/* Measurable Impact */}
+          {/* Conclusion */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-8 text-white">Measurable Impact</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <Clock className="text-primary" size={20} />
-                  <div className="text-4xl font-bold text-primary">40%</div>
-                </div>
-                <p className="text-white font-medium mb-2">Faster Job Posting</p>
-                <p className="text-gray-400 text-sm">Streamlined posting process</p>
-              </div>
-              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <Smartphone className="text-secondary" size={20} />
-                  <div className="text-4xl font-bold text-secondary">65%</div>
-                </div>
-                <p className="text-white font-medium mb-2">Mobile Usage Increase</p>
-                <p className="text-gray-400 text-sm">Enhanced mobile experience</p>
-              </div>
-              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <Users className="text-accent" size={20} />
-                  <div className="text-4xl font-bold text-accent">85%</div>
-                </div>
-                <p className="text-white font-medium mb-2">User Satisfaction</p>
-                <p className="text-gray-400 text-sm">Positive user feedback</p>
-              </div>
-              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <CheckCircle className="text-primary" size={20} />
-                  <div className="text-4xl font-bold text-primary">50%</div>
-                </div>
-                <p className="text-white font-medium mb-2">Support Ticket Reduction</p>
-                <p className="text-gray-400 text-sm">Improved user experience</p>
-              </div>
-              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <TrendingUp className="text-secondary" size={20} />
-                  <div className="text-4xl font-bold text-secondary">30%</div>
-                </div>
-                <p className="text-white font-medium mb-2">Higher Engagement</p>
-                <p className="text-gray-400 text-sm">Increased platform activity</p>
-              </div>
-              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <BarChart3 className="text-accent" size={20} />
-                  <div className="text-4xl font-bold text-accent">95%</div>
-                </div>
-                <p className="text-white font-medium mb-2">Feature Adoption</p>
-                <p className="text-gray-400 text-sm">Core features actively used</p>
-              </div>
+            <h2 className="text-3xl font-bold mb-8 text-white">Transforming the Future of Ethical Employment</h2>
+            <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 mb-8">
+              <p className="text-gray-300 leading-relaxed text-lg mb-6">
+                TheGigSearch represents more than a technological solution—it's a paradigm shift toward 
+                ethical, compliant, and mutually beneficial employment relationships. By leveraging AI-driven 
+                automation and predictive analytics, we've created a sustainable ecosystem that serves the 
+                needs of international students, businesses, and the broader UK economy.
+              </p>
+              <p className="text-gray-300 leading-relaxed text-lg">
+                The platform's success demonstrates the transformative power of thoughtful technology 
+                implementation in addressing complex regulatory and social challenges. As we continue to 
+                scale and enhance our capabilities, TheGigSearch is positioned to become the definitive 
+                platform for ethical international student employment across the UK and beyond.
+              </p>
             </div>
             
             <Link 
               to="/#contact"
               className="btn-primary text-lg px-8 py-4 inline-flex items-center gap-3"
             >
-              Transform Your Platform
+              Transform Your Business Today
               <ArrowLeft className="rotate-180" size={20} />
             </Link>
           </div>
