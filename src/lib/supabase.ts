@@ -9,21 +9,18 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
-// Database types
-export interface ContactEnquiry {
+// Database types for contact_messages table
+export interface ContactMessage {
   id: string
-  enquiry_id: string
-  full_name: string
+  name: string
   email: string
   subject: string
   message: string
-  status: 'new' | 'in_progress' | 'resolved' | 'closed'
   created_at: string
-  updated_at: string
 }
 
-export interface ContactSubmissionData {
-  full_name: string
+export interface ContactFormData {
+  name: string
   email: string
   subject: string
   message: string

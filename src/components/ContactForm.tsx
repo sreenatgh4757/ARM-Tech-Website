@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Send, Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { ContactService } from '../services/contactService';
-import type { ContactSubmissionData } from '../lib/supabase';
+import type { ContactFormData } from '../lib/supabase';
 
 const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState<ContactSubmissionData>({
-    full_name: '',
+  const [formData, setFormData] = useState<ContactFormData>({
+    name: '',
     email: '',
     subject: '',
     message: ''
@@ -15,7 +15,6 @@ const ContactForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [enquiryId, setEnquiryId] = useState<string>('');
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -48,15 +47,13 @@ const ContactForm: React.FC = () => {
     try {
       const result = await ContactService.submitContactForm(formData);
       
-      if (result.success && result.enquiry_id) {
+      if (result.success) {
         setIsSuccess(true);
-        setEnquiryId(result.enquiry_id);
-        setFormData({ full_name: '', email: '', subject: '', message: '' });
+        setFormData({ name: '', email: '', subject: '', message: '' });
         
         // Reset success state after 5 seconds
         setTimeout(() => {
           setIsSuccess(false);
-          setEnquiryId('');
         }, 5000);
       } else {
         throw new Error(result.error || 'Submission failed');
@@ -135,7 +132,7 @@ const ContactForm: React.FC = () => {
                 <div>
                   <h4 className="font-semibold text-white mb-1">Phone</h4>
                   <a 
-                    href="tel:+447000000000" 
+                    href="tel:+447823857523" 
                     className="text-gray-300 hover:text-primary transition-colors"
                   >
                     +44 7823857523
@@ -165,17 +162,14 @@ const ContactForm: React.FC = () => {
           >
             {isSuccess && (
               <div className="bg-green-500/20 text-green-400 p-4 rounded-lg mb-6">
-                <p className="font-medium">Thank you for your message!</p>
-                <p className="text-sm">
-                  Reference: {enquiryId}<br />
-                  We'll get back to you within 24 hours.
-                </p>
+                <p className="font-medium">Thank you! Your message has been sent.</p>
+                <p className="text-sm">We'll get back to you within 24 hours.</p>
               </div>
             )}
 
             {errors.general && (
               <div className="bg-red-500/20 text-red-400 p-4 rounded-lg mb-6">
-                <p className="font-medium">Submission failed</p>
+                <p className="font-medium">Failed to save your enquiry. Please try again or email us at info@armtechnologies.ltd</p>
                 <p className="text-sm">{errors.general}</p>
               </div>
             )}
@@ -184,23 +178,23 @@ const ContactForm: React.FC = () => {
               <h3 className="text-2xl font-bold mb-6 text-white">Send us a Message</h3>
               
               <div className="mb-6">
-                <label htmlFor="full_name" className="block text-white font-medium mb-2">
+                <label htmlFor="name" className="block text-white font-medium mb-2">
                   Full Name *
                 </label>
                 <input
                   type="text"
-                  id="full_name"
-                  name="full_name"
+                  id="name"
+                  name="name"
                   required
-                  value={formData.full_name}
+                  value={formData.name}
                   onChange={handleChange}
                   className={`w-full bg-background/50 border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition ${
-                    errors.full_name ? 'border-red-500' : 'border-gray-700'
+                    errors.name ? 'border-red-500' : 'border-gray-700'
                   }`}
-                  placeholder=" "
+                  placeholder="Enter your full name"
                 />
-                {errors.full_name && (
-                  <p className="text-red-400 text-sm mt-1">{errors.full_name}</p>
+                {errors.name && (
+                  <p className="text-red-400 text-sm mt-1">{errors.name}</p>
                 )}
               </div>
               
@@ -218,7 +212,7 @@ const ContactForm: React.FC = () => {
                   className={`w-full bg-background/50 border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition ${
                     errors.email ? 'border-red-500' : 'border-gray-700'
                   }`}
-                  placeholder=" "
+                  placeholder="Enter your email address"
                 />
                 {errors.email && (
                   <p className="text-red-400 text-sm mt-1">{errors.email}</p>
@@ -248,7 +242,7 @@ const ContactForm: React.FC = () => {
 
               <div className="mb-6">
                 <label htmlFor="message" className="block text-white font-medium mb-2">
-                  Project Details *
+                  Message *
                 </label>
                 <textarea
                   id="message"
