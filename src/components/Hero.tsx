@@ -123,21 +123,6 @@ const Hero: React.FC = () => {
           >
             We deliver scalable Agentic AI, DevOps, and product solutions — built for startups and enterprises.
           </motion.p>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex justify-center"
-          >
-            <button 
-              onClick={handleContactClick}
-              className="btn-primary text-lg px-8 py-4 flex items-center gap-3 hover:scale-105 transform transition-all"
-            >
-              Let's Automate Your Business
-              <ArrowRight size={20} />
-            </button>
-          </motion.div>
         </motion.div>
       </div>
     </section>
