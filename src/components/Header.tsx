@@ -41,8 +41,8 @@ const Header: React.FC = () => {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-gradient-to-r from-[#8A5CF5] to-[#273CFF] text-white shadow-lg'
-          : 'bg-gradient-to-r from-[#8A5CF5] to-[#273CFF] text-white'
+          ? 'bg-gradient-to-r from-[#8A5CF5]/80 to-[#273CFF]/80 backdrop-blur-md text-white shadow-lg'
+          : 'bg-transparent backdrop-blur-sm text-white'
       }`}
     >
       <div className="container-custom">
@@ -91,9 +91,9 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`mobile-menu fixed top-0 left-0 w-full h-full transition-transform duration-300 ${
+        className={`fixed top-0 left-0 w-full h-full transition-transform duration-300 ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
-        } bg-gradient-to-b from-[#8A5CF5] to-[#273CFF] text-white z-40`}
+        } bg-gradient-to-b from-[#8A5CF5]/80 to-[#273CFF]/80 backdrop-blur-lg text-white z-40`}
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between p-6 border-b border-white/20">
