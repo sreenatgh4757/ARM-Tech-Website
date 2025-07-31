@@ -156,8 +156,6 @@ const Hero: React.FC = () => {
         </motion.div>
       </motion.div>
     </section>
-  )
-  )
   );
 };
 
