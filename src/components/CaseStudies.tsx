@@ -43,7 +43,7 @@ const CaseStudies: React.FC = () => {
             <Link 
               key={index}
               to={study.link}
-              className={`case-study-card block ${inView ? `fade-in-up-delay-${index + 1}` : 'opacity-0'}`}
+              className={`case-study-card group block ${inView ? `fade-in-up-delay-${index + 1}` : 'opacity-0'}`}
             >
               <div className="relative overflow-hidden">
                 <img 

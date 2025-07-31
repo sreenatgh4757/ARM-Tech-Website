@@ -149,7 +149,7 @@ body {
 
 /* Case Study Cards */
 .case-study-card {
-  @apply card overflow-hidden group cursor-pointer;
+  @apply card overflow-hidden cursor-pointer;
 }
 
 .case-study-card img {
