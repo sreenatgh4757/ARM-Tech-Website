@@ -1,7 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Award, Zap, Shield } from 'lucide-react';
+import { Zap, Shield, Users } from 'lucide-react';
 
 const WhyChooseUs: React.FC = () => {
   const [ref, inView] = useInView({
@@ -9,61 +8,52 @@ const WhyChooseUs: React.FC = () => {
     threshold: 0.1,
   });
 
-  const reasons = [
+  const features = [
     {
-      icon: <Award size={32} />,
-      title: "AI + DevOps Integration",
-      description: "Our team combines deep expertise in artificial intelligence with proven DevOps practices to deliver seamless, intelligent automation solutions."
+      icon: <Zap size={32} className="text-accent" />,
+      title: "⚡ Fast Delivery",
+      description: "Rapid development and deployment with agile methodologies"
     },
     {
-      icon: <Zap size={32} />,
-      title: "Real-World Automation Experience",
-      description: "We don't just build theoretical solutions. Our automation workflows are battle-tested in production environments across various industries."
+      icon: <Shield size={32} className="text-accent" />,
+      title: "🔒 Scalable Solutions",
+      description: "Future-proof architecture that grows with your business"
     },
     {
-      icon: <Shield size={32} />,
-      title: "UK Contract Ready",
-      description: "Fully compliant with UK regulations and ready to provide sponsorship support for international talent joining your projects."
+      icon: <Users size={32} className="text-accent" />,
+      title: "🤝 Startup Friendly",
+      description: "Flexible pricing and support tailored for growing companies"
     }
   ];
 
   return (
-    <section className="py-20 bg-card/30">
-      <div className="container-custom mx-auto px-4">
-        <motion.div
-          className="text-center mb-16"
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+    <section className="section-padding bg-gray-50">
+      <div className="container-custom">
+        <div className="text-center mb-16" ref={ref}>
+          <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-gray-800 ${inView ? 'fade-in-up' : 'opacity-0'}`}>
             Why Choose <span className="text-gradient">ARM Technologies</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className={`text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed ${inView ? 'fade-in-up-delay-1' : 'opacity-0'}`}>
             We're not just another tech consultancy. We're your strategic partners in digital transformation.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {reasons.map((reason, index) => (
-            <motion.div
+        <div className="why-us-grid grid gap-8">
+          {features.map((feature, index) => (
+            <div 
               key={index}
-              className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 hover:bg-card/70 transition-all duration-300 text-center"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className={`icon-card text-center ${inView ? `fade-in-up-delay-${index + 1}` : 'opacity-0'}`}
             >
-              <div className="text-primary mb-4 flex justify-center">
-                {reason.icon}
+              <div className="mb-4 flex justify-center">
+                {feature.icon}
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">
-                {reason.title}
+              <h3 className="text-xl font-semibold mb-3 text-gray-800">
+                {feature.title}
               </h3>
-              <p className="text-gray-300 leading-relaxed">
-                {reason.description}
+              <p className="text-gray-600 leading-relaxed">
+                {feature.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

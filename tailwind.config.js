@@ -4,20 +4,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: '#A288E3',
-          dark: '#8A6AD3',
-        },
-        secondary: '#00C2FF',
-        accent: '#FF8A3D',
-        background: '#0A0A0F',
-        card: '#1E1E2A',
+        primary: '#273CFF',
+        accent: '#8A5CF5',
+        'text-primary': '#0B0C10',
+        'text-secondary': '#6B7280',
+        background: '#FFFFFF',
+        surface: '#F8FAFC',
+        border: '#E5E7EB',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float': 'float 6s ease-in-out infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': {
+            transform: 'translateY(0px)',
+          },
+          '50%': {
+            transform: 'translateY(-20px)',
+          },
+        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
