@@ -132,7 +132,7 @@ body {
 
 /* Service Cards */
 .service-card {
-  @apply card p-8 text-center group cursor-pointer;
+  @apply card p-8 text-center cursor-pointer;
 }
 
 .service-card img {

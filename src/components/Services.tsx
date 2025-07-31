@@ -46,7 +46,7 @@ const Services: React.FC = () => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className={`service-card ${inView ? `fade-in-up-delay-${index + 1}` : 'opacity-0'}`}
+              className={`service-card group ${inView ? `fade-in-up-delay-${index + 1}` : 'opacity-0'}`}
             >
               <img 
                 src={service.icon} 
