@@ -117,6 +117,7 @@ const CTABanner: React.FC = () => {
         </motion.div>
       </div>
     </section>
+  )
   );
 };
 
