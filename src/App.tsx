@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import CaseStudies from './components/CaseStudies';
 import CTABanner from './components/CTABanner';
+import Footer from './components/Footer';   // ✅ Add this
 
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,6 +50,8 @@ const App: React.FC = () => {
       <section id="contact">
         <CTABanner />
       </section>
+
+      <Footer />   {/* ✅ Footer added here */}
     </div>
   );
 };
