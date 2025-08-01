@@ -47,7 +47,7 @@ const App: React.FC = () => {
       <section id="case-studies">
         <CaseStudies />
       </section>
-<section id="contact" className="py-24 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-600 text-white">
+<section id="contact" className="py-24 bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#38BDF8] text-white">
   <div className="container-custom">
     <h2 className="text-4xl font-bold mb-6 text-center">Contact Us</h2>
     <p className="text-lg mb-12 text-center max-w-2xl mx-auto text-white/90">
@@ -63,12 +63,13 @@ const App: React.FC = () => {
       </div>
 
       {/* Contact Form */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
+      <div className="bg-white rounded-xl p-6 shadow-lg text-gray-900">
         <ContactForm />
       </div>
     </div>
   </div>
 </section>
+
 
 
       <Footer />   {/* ✅ Footer added here */}
