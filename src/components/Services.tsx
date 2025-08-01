@@ -31,7 +31,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="section-padding bg-gray-50">
+    <section id="services" className="py-24 bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16" ref={ref}>
           <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-gray-800 ${inView ? 'fade-in-up' : 'opacity-0'}`}>
