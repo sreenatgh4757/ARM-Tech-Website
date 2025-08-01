@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import CaseStudies from './components/CaseStudies';
 import ContactForm from './components/ContactForm';
+import CTABanner from './components/CTABanner';
 import Footer from './components/Footer';   // ✅ Add this
 
 const App: React.FC = () => {
