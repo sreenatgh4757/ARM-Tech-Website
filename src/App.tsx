@@ -48,12 +48,28 @@ const App: React.FC = () => {
         <CaseStudies />
       </section>
 
-     <section id="contact">
-  <CTABanner />
-  <div className="mt-8">
-    <ContactForm />
+<section id="contact" className="py-24 bg-gray-50">
+  <div className="container-custom">
+    <h2 className="text-4xl font-bold mb-6 text-center text-gray-800">Contact Us</h2>
+    <p className="text-lg text-gray-600 mb-12 text-center max-w-2xl mx-auto">
+      We’d love to hear from you! Fill out the form and we’ll get back to you soon.
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Contact Details */}
+      <div className="space-y-4">
+        <p className="text-gray-700 font-medium">📧 info@armtechnologies.ltd</p>
+        <p className="text-gray-700 font-medium">📞 +44 1234 567890</p>
+        <p className="text-gray-700 font-medium">📍 London, United Kingdom</p>
+      </div>
+
+      {/* Contact Form */}
+      <div>
+        <ContactForm />
+      </div>
+    </div>
   </div>
- </section>
+</section>
 
       <Footer />   {/* ✅ Footer added here */}
     </div>
