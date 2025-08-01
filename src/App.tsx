@@ -48,27 +48,46 @@ const App: React.FC = () => {
         <CaseStudies />
       </section>
 <section id="contact" className="py-24 bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#38BDF8] text-white">
-  <div className="container-custom">
-    <h2 className="text-4xl font-bold mb-6 text-center">Contact Us</h2>
-    <p className="text-lg mb-12 text-center max-w-2xl mx-auto text-white/90">
-      We’d love to hear from you! Fill out the form and we’ll get back to you soon.
+  <div className="container-custom text-center">
+    <h2 className="text-4xl font-bold mb-6">Contact Us</h2>
+    <p className="text-lg mb-12 text-white/80 max-w-2xl mx-auto">
+      We'd love to hear from you! Fill out the form and our team will get back to you soon.
     </p>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {/* Contact Details */}
-      <div className="space-y-4">
-        <p className="font-medium">📧 info@armtechnologies.ltd</p>
-        <p className="font-medium">📞 +44 1234 567890</p>
-        <p className="font-medium">📍 London, United Kingdom</p>
-      </div>
-
-      {/* Contact Form */}
-      <div className="bg-white rounded-xl p-6 shadow-lg text-gray-900">
-        <ContactForm />
-      </div>
+    {/* Contact Form */}
+    <div className="max-w-2xl mx-auto bg-white rounded-xl p-8 shadow-lg">
+      <form className="space-y-4">
+        <input
+          type="text"
+          placeholder="Your Name"
+          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
+        />
+        <input
+          type="email"
+          placeholder="Your Email"
+          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
+        />
+        <input
+          type="text"
+          placeholder="Subject"
+          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
+        />
+        <textarea
+          placeholder="Your Message"
+          rows={4}
+          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
+        ></textarea>
+        <button
+          type="submit"
+          className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold py-3 rounded-lg shadow-lg hover:opacity-90 transition"
+        >
+          Send Message
+        </button>
+      </form>
     </div>
   </div>
 </section>
+
 
 
 
