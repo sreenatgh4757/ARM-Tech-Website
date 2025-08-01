@@ -1,63 +1,56 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
+import React, { useState } from 'react';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import CaseStudies from './components/CaseStudies';
-import WhyChooseUs from './components/WhyChooseUs';
-import CTABanner from './components/CTABanner';
-import Footer from './components/Footer';
-import ContactPage from './pages/ContactPage';
-import ServicesPage from './pages/ServicesPage';
-import CaseStudiesPage from './pages/CaseStudiesPage';
-import ScrollToTop from './components/ScrollToTop';
+import Contact from './components/Contact';
 
-function App() {
-  const [isLoading, setIsLoading] = useState(true);
+const App: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-accent border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600 font-medium">Loading ARM Technologies...</p>
-        </div>
-      </div>
-    );
-  }
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 60,
+        behavior: 'smooth'
+      });
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen bg-white">
-        <Header />
-        <Routes>
-          <Route path="/" element={
-            <main>
-              <Hero />
-              <Services />
-              <CaseStudies />
-              <WhyChooseUs />
-              <CTABanner />
-            </main>
-          } />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/case-studies" element={<CaseStudiesPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <div className="w-full">
+      {/* Header */}
+      <header className="fixed top-0 w-full z-50 bg-gradient-to-r from-[#0F172A]/90 via-[#1E293B]/90 to-[#38BDF8]/90 backdrop-blur-md text-white shadow-md">
+        <div className="container-custom flex items-center justify-between py-4">
+          <div className="text-2xl font-bold">A.R.M Technologies Ltd</div>
+          <nav className="hidden md:flex space-x-8">
+            <button onClick={() => scrollToSection('hero')} className="hover:text-blue-300">Home</button>
+            <button onClick={() => scrollToSection('services')} className="hover:text-blue-300">Services</button>
+            <button onClick={() => scrollToSection('case-studies')} className="hover:text-blue-300">Case Studies</button>
+            <button onClick={() => scrollToSection('contact')} className="hover:text-blue-300">Contact</button>
+          </nav>
+        </div>
+      </header>
+
+      {/* Sections */}
+      <section id="hero">
+        <Hero />
+      </section>
+
+      <section id="services">
+        <Services />
+      </section>
+
+      <section id="case-studies">
+        <CaseStudies />
+      </section>
+
+      <section id="contact">
+        <Contact />
+      </section>
+    </div>
   );
-}
+};
 
 export default App;
