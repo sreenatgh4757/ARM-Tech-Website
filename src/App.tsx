@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import CaseStudies from './components/CaseStudies';
-import CTABanner from './components/CTABanner';
+import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';   // ✅ Add this
 
 const App: React.FC = () => {
@@ -47,9 +47,12 @@ const App: React.FC = () => {
         <CaseStudies />
       </section>
 
-      <section id="contact">
-        <CTABanner />
-      </section>
+     <section id="contact">
+  <CTABanner />
+  <div className="mt-8">
+    <ContactForm />
+  </div>
+ </section>
 
       <Footer />   {/* ✅ Footer added here */}
     </div>
