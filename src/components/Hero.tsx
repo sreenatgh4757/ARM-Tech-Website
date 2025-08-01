@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
     >
       <div className={`max-w-4xl mx-auto ${isVisible ? 'fade-in-up' : 'opacity-0'}`}>
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
-          AI Automation, DevOps, and <span className="whitespace-nowrap">Software Development</span>
+          AI Automation, DevOps <span className="whitespace-nowrap">Software Development</span>
           <span className="block bg-gradient-to-r from-[#38BDF8] to-[#818CF8] bg-clip-text text-transparent">
             for Modern Business
           </span>
