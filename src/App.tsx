@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import CaseStudies from './components/CaseStudies';
-import Contact from './components/Contact';
+import CTABanner from './components/CTABanner';
 
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,7 +47,7 @@ const App: React.FC = () => {
       </section>
 
       <section id="contact">
-        <Contact />
+        <CTABanner />
       </section>
     </div>
   );
