@@ -47,29 +47,29 @@ const App: React.FC = () => {
       <section id="case-studies">
         <CaseStudies />
       </section>
-
-<section id="contact" className="py-24 bg-gray-50">
+<section id="contact" className="py-24 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-600 text-white">
   <div className="container-custom">
-    <h2 className="text-4xl font-bold mb-6 text-center text-gray-800">Contact Us</h2>
-    <p className="text-lg text-gray-600 mb-12 text-center max-w-2xl mx-auto">
+    <h2 className="text-4xl font-bold mb-6 text-center">Contact Us</h2>
+    <p className="text-lg mb-12 text-center max-w-2xl mx-auto text-white/90">
       We’d love to hear from you! Fill out the form and we’ll get back to you soon.
     </p>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {/* Contact Details */}
       <div className="space-y-4">
-        <p className="text-gray-700 font-medium">📧 info@armtechnologies.ltd</p>
-        <p className="text-gray-700 font-medium">📞 +44 1234 567890</p>
-        <p className="text-gray-700 font-medium">📍 London, United Kingdom</p>
+        <p className="font-medium">📧 info@armtechnologies.ltd</p>
+        <p className="font-medium">📞 +44 1234 567890</p>
+        <p className="font-medium">📍 London, United Kingdom</p>
       </div>
 
       {/* Contact Form */}
-      <div>
+      <div className="bg-white rounded-xl p-6 shadow-lg">
         <ContactForm />
       </div>
     </div>
   </div>
 </section>
+
 
       <Footer />   {/* ✅ Footer added here */}
     </div>
