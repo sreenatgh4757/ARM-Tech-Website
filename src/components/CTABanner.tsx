@@ -1,26 +1,22 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const CTABanner: React.FC = () => {
   return (
-    <section className="cta-banner" id="contact">
-      <div className="container-custom">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to automate your workflows?
-          </h2>
-          <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Let's discuss how we can transform your business with AI automation and modern technology solutions.
-          </p>
-          <Link 
-            to="/contact"
-            className="btn-primary bg-white text-accent hover:bg-gray-100 text-lg px-8 py-4"
-          >
-            Contact Us
-            <ArrowRight size={20} />
-          </Link>
-        </div>
+    <section
+      id="contact"
+      className="py-32 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] text-white text-center"
+    >
+      <div className="max-w-3xl mx-auto px-4">
+        <h2 className="text-4xl font-bold mb-6">Let’s Build Something Together</h2>
+        <p className="text-lg mb-8">
+          Contact us to discuss AI automation, DevOps, and software solutions for your business.
+        </p>
+        <a
+          href="mailto:info@armtechnologies.ltd"
+          className="inline-block bg-white text-[#0F172A] font-semibold px-8 py-4 rounded-lg hover:opacity-90 transition"
+        >
+          Get in Touch
+        </a>
       </div>
     </section>
   );
