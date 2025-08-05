@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Send, Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { isValidPhoneNumber, parsePhoneNumber } from 'libphonenumber-js';
+import { supabase } from '../lib/supabase';
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -18,10 +19,7 @@ const ContactForm: React.FC = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -33,9 +31,7 @@ const ContactForm: React.FC = () => {
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
-
     if (!formData.name.trim()) newErrors.name = 'Full name is required';
-
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
@@ -65,9 +61,19 @@ const ContactForm: React.FC = () => {
     setIsSubmitting(true);
     setErrors({});
 
+    const fullPhone = `${formData.countryCode}${formData.phone}`;
+
     try {
-      // Replace with your backend call
-      await new Promise(res => setTimeout(res, 1000));
+      const { error } = await supabase.from('contact_messages').insert({
+        name: formData.name,
+        email: formData.email,
+        phone: fullPhone,
+        subject: formData.subject,
+        message: formData.message
+      });
+
+      if (error) throw error;
+
       setIsSuccess(true);
       setFormData({ name: '', email: '', countryCode: '+44', phone: '', subject: '', message: '' });
       setTimeout(() => setIsSuccess(false), 5000);
