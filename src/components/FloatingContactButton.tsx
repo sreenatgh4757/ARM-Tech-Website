@@ -1,6 +1,5 @@
-/*
 import React, { useState } from 'react';
- import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Mail, User, FileText } from 'lucide-react';
 import { ContactService } from '../services/contactService';
 import type { ContactFormData } from '../lib/supabase';
@@ -343,4 +342,3 @@ const FloatingContactButton: React.FC = () => {
 };
 
 export default FloatingContactButton;
-*/
