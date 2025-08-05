@@ -6,17 +6,18 @@ export interface ContactFormValidation {
   errors: {
     name?: string
     email?: string
+    phone?: string // ✅ Added phone field
     subject?: string
     message?: string
   }
 }
 
 export class ContactService {
-  // Validate form data
+  // ✅ Validate form data including phone
   static validateForm(data: ContactFormData): ContactFormValidation {
     const errors: ContactFormValidation['errors'] = {}
-    
-    // Validate name
+
+    // Name
     if (!data.name?.trim()) {
       errors.name = 'Name is required'
     } else if (data.name.trim().length < 2) {
@@ -24,8 +25,8 @@ export class ContactService {
     } else if (data.name.trim().length > 100) {
       errors.name = 'Name must be less than 100 characters'
     }
-    
-    // Validate email
+
+    // Email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!data.email?.trim()) {
       errors.email = 'Email address is required'
@@ -34,8 +35,16 @@ export class ContactService {
     } else if (data.email.trim().length > 255) {
       errors.email = 'Email address is too long'
     }
-    
-    // Validate subject
+
+    // ✅ Phone
+    const phoneRegex = /^\+[1-9]\d{7,14}$/
+    if (!data.phone?.trim()) {
+      errors.phone = 'Phone number is required'
+    } else if (!phoneRegex.test(data.phone.trim())) {
+      errors.phone = 'Please enter a valid international phone number with country code (e.g. +447911123456)'
+    }
+
+    // Subject
     if (!data.subject?.trim()) {
       errors.subject = 'Subject is required'
     } else if (data.subject.trim().length < 3) {
@@ -43,8 +52,8 @@ export class ContactService {
     } else if (data.subject.trim().length > 200) {
       errors.subject = 'Subject must be less than 200 characters'
     }
-    
-    // Validate message
+
+    // Message
     if (!data.message?.trim()) {
       errors.message = 'Message is required'
     } else if (data.message.trim().length < 10) {
@@ -52,43 +61,43 @@ export class ContactService {
     } else if (data.message.trim().length > 2000) {
       errors.message = 'Message must be less than 2000 characters'
     }
-    
+
     return {
       isValid: Object.keys(errors).length === 0,
       errors
     }
   }
 
-  // Submit contact form to contact_messages table
+  // ✅ Submit contact form (now includes phone)
   static async submitContactForm(data: ContactFormData): Promise<{
     success: boolean
     error?: string
   }> {
     try {
-      // Validate form data
+      // Validate first
       const validation = this.validateForm(data)
       if (!validation.isValid) {
         const errorMessages = Object.values(validation.errors).filter(Boolean)
         throw new Error(`Validation failed: ${errorMessages.join(', ')}`)
       }
 
-      // Clean and prepare data
+      // Prepare clean data
       const cleanData = {
         name: data.name.trim(),
         email: data.email.trim().toLowerCase(),
+        phone: data.phone.trim(), // ✅ Include phone
         subject: data.subject.trim(),
         message: data.message.trim()
       }
 
-      // Insert into contact_messages table
+      // Insert into Supabase
       const { error: insertError } = await supabase
         .from('contact_messages')
         .insert([cleanData])
 
       if (insertError) {
         console.error('Database insertion error:', insertError)
-        
-        // Check for specific error types
+
         if (insertError.code === 'PGRST116') {
           throw new Error('Database table not found. Please check your Supabase setup.')
         } else if (insertError.code === '42501') {
@@ -98,9 +107,7 @@ export class ContactService {
         }
       }
 
-      return {
-        success: true
-      }
+      return { success: true }
 
     } catch (error) {
       console.error('Contact form submission error:', error)
