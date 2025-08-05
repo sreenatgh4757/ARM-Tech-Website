@@ -30,7 +30,7 @@ function App() {
           <Route path="/case-study/thegigsearch" element={<CaseStudy />} />
         </Routes>
         <Footer />
-        <FloatingContactButton />
+        {/* <FloatingContactButton /> */}
       </div>
     </Router>
   );
