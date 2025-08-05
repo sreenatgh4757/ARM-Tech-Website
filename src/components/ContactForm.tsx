@@ -140,7 +140,7 @@ const ContactForm: React.FC = () => {
                   <input type="tel" id="countryCode" name="countryCode" required value={formData.countryCode} onChange={handleChange}
                     placeholder="+44" className="w-1/3 bg-background/50 border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" />
                   <input type="tel" id="phone" name="phone" required value={formData.phone} onChange={handleChange}
-                    placeholder="7307969911" className={`w-2/3 bg-background/50 border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary ${errors.phone ? 'border-red-500' : 'border-gray-700'}`} />
+                    placeholder= className={`w-2/3 bg-background/50 border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary ${errors.phone ? 'border-red-500' : 'border-gray-700'}`} />
                 </div>
                 {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
               </div>
