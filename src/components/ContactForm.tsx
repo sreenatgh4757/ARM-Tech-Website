@@ -70,7 +70,8 @@ const ContactForm: React.FC = () => {
         email: formData.email,
         phone: fullPhone,
         subject: formData.subject,
-        message: formData.message
+        message: formData.message,
+        url: formData.url
       });
 
       if (error) throw error;
