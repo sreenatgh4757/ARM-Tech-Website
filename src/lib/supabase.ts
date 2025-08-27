@@ -18,6 +18,7 @@ export interface ContactMessage {
   subject: string
   message: string
   created_at: string
+  url?: string
 }
 
 export interface ContactFormData {
@@ -26,4 +27,5 @@ export interface ContactFormData {
   phone: string
   subject: string
   message: string
+  url?: string
 }

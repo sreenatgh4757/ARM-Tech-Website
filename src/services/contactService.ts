@@ -87,7 +87,8 @@ export class ContactService {
         email: data.email.trim().toLowerCase(),
         phone: data.phone.trim(), // ✅ Include phone
         subject: data.subject.trim(),
-        message: data.message.trim()
+        message: data.message.trim(),
+        url: data.url || (typeof window !== 'undefined' ? window.location.href : '')
       }
 
       // Insert into Supabase

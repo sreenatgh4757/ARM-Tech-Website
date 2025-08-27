@@ -12,7 +12,8 @@ const ContactForm: React.FC = () => {
     countryCode: '+44',
     phone: '',
     subject: '',
-    message: ''
+    message: '',
+    url: typeof window !== 'undefined' ? window.location.href : ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -69,13 +70,14 @@ const ContactForm: React.FC = () => {
         email: formData.email,
         phone: fullPhone,
         subject: formData.subject,
-        message: formData.message
+        message: formData.message,
+        url: formData.url
       });
 
       if (error) throw error;
 
       setIsSuccess(true);
-      setFormData({ name: '', email: '', countryCode: '+44', phone: '', subject: '', message: '' });
+      setFormData({ name: '', email: '', countryCode: '+44', phone: '', subject: '', message: '', url: typeof window !== 'undefined' ? window.location.href : '' });
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
       setErrors({ general: 'Submission failed. Please try again later.' });
