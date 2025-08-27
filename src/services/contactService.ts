@@ -68,7 +68,7 @@ export class ContactService {
     }
   }
 
-  // ✅ Submit contact form (without url)
+  // ✅ Submit contact form (no url, correct table)
   static async submitContactForm(data: ContactFormData): Promise<{
     success: boolean
     error?: string
@@ -87,13 +87,12 @@ export class ContactService {
         email: data.email.trim().toLowerCase(),
         phone: data.phone.trim(),
         subject: data.subject.trim(),
-        message: data.message.trim(),
-        url: data.url || ''
+        message: data.message.trim()
       }
 
-      // Insert into Supabase
+      // ✅ Insert into Supabase (new table: contact_form)
       const { error: insertError } = await supabase
-        .from('contact_messages')
+        .from('contact_form')
         .insert([cleanData])
 
       if (insertError) {
