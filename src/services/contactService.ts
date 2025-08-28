@@ -6,7 +6,7 @@ export interface ContactFormValidation {
   errors: {
     name?: string
     email?: string
-    phone?: string // ✅ Added phone field
+    phone?: string
     subject?: string
     message?: string
   }
@@ -68,7 +68,7 @@ export class ContactService {
     }
   }
 
-  // ✅ Submit contact form (now includes phone)
+  // ✅ Submit contact form (no url, correct table)
   static async submitContactForm(data: ContactFormData): Promise<{
     success: boolean
     error?: string
@@ -81,18 +81,18 @@ export class ContactService {
         throw new Error(`Validation failed: ${errorMessages.join(', ')}`)
       }
 
-      // Prepare clean data
+      // Prepare clean data (no url field)
       const cleanData = {
         name: data.name.trim(),
         email: data.email.trim().toLowerCase(),
-        phone: data.phone.trim(), // ✅ Include phone
+        phone: data.phone.trim(),
         subject: data.subject.trim(),
         message: data.message.trim()
       }
 
-      // Insert into Supabase
+      // ✅ Insert into Supabase (new table: contact_form)
       const { error: insertError } = await supabase
-        .from('contact_messages')
+        .from('contact_form')
         .insert([cleanData])
 
       if (insertError) {
