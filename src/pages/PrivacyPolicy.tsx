@@ -32,121 +32,139 @@ const PrivacyPolicy: React.FC = () => {
               <span className="text-gradient">Privacy Policy</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Your privacy is important to us. This policy explains how we collect, use, and protect your personal information.
+              At ARM Technologies Ltd, your privacy is extremely important to us. 
+              This Privacy Policy explains how we collect, use, disclose, and safeguard 
+              your personal information when you visit our website or use our services.
             </p>
           </div>
 
           {/* Privacy Policy Content */}
           <div className="max-w-4xl mx-auto">
             <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 mb-8">
-              <div className="space-y-8">
-                
-                {/* Introduction */}
-                <div>
-                  <h2 className="text-2xl font-bold text-white mb-4">Our Commitment to Your Privacy</h2>
-                  <p className="text-gray-300 leading-relaxed text-lg">
-                    At ARM Technologies Ltd, we value your privacy and are committed to protecting your personal information. 
-                    This privacy policy outlines how we handle the data you share with us.
-                  </p>
-                </div>
+              <div className="space-y-10">
 
                 {/* Information We Collect */}
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-4">Information We Collect</h3>
-                  <p className="text-gray-300 leading-relaxed mb-4">
-                    We collect only the information you provide when contacting us through our website forms or direct communication:
-                  </p>
+                  <h3 className="text-xl font-bold text-white mb-4">1. Information We Collect</h3>
                   <ul className="space-y-2 text-gray-300">
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                      <span><strong>Name:</strong> To address you personally in our communications</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                      <span><strong>Email Address:</strong> To respond to your enquiries and provide updates</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                      <span><strong>Phone Number:</strong> For direct communication when necessary</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                      <span><strong>Subject & Message:</strong> To understand your requirements and provide relevant assistance</span>
-                    </li>
+                    <li>Personal Information: name, email address, phone number, and details submitted via contact forms.</li>
+                    <li>Automatically Collected Data: IP address, browser type, device information, and site usage data.</li>
+                    <li>Cookies & Tracking Technologies: to improve browsing experience and analyse site performance.</li>
                   </ul>
                 </div>
 
                 {/* How We Use Your Information */}
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-4">How We Use Your Information</h3>
+                  <h3 className="text-xl font-bold text-white mb-4">2. How We Use Your Information</h3>
                   <p className="text-gray-300 leading-relaxed">
-                    This information is used solely for responding to your enquiry and providing our services. 
-                    We do not use your personal information for marketing purposes without your explicit consent, 
-                    and we never sell or rent your information to third parties.
+                    We process your information to respond to enquiries, provide requested services, 
+                    improve our website, communicate updates, comply with legal obligations, and protect our rights. 
+                    We do not sell or rent your personal data to third parties.
                   </p>
+                </div>
+
+                {/* Legal Basis */}
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-4">3. Legal Basis for Processing</h3>
+                  <ul className="space-y-2 text-gray-300">
+                    <li>Consent – when you voluntarily provide your details.</li>
+                    <li>Contractual Necessity – to deliver requested services.</li>
+                    <li>Legitimate Interests – improving services and preventing fraud.</li>
+                    <li>Legal Obligation – complying with UK & EU data protection laws.</li>
+                  </ul>
                 </div>
 
                 {/* Data Protection */}
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-4">Data Protection & Security</h3>
+                  <h3 className="text-xl font-bold text-white mb-4">4. Data Protection & Security</h3>
                   <p className="text-gray-300 leading-relaxed">
-                    We implement appropriate technical and organizational measures to protect your personal information 
-                    against unauthorized access, alteration, disclosure, or destruction. Your data is stored securely 
-                    and accessed only by authorized personnel who need it to provide our services.
+                    We use secure servers, encryption, and restricted access controls to safeguard your data. 
+                    While we follow industry standards, no method of transmission or storage is 100% secure.
                   </p>
                 </div>
 
-                {/* Third Party Sharing */}
+                {/* Sharing of Information */}
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-4">Third Party Sharing</h3>
+                  <h3 className="text-xl font-bold text-white mb-4">5. Sharing of Information</h3>
                   <p className="text-gray-300 leading-relaxed">
-                    We do not sell, trade, or share your personal information with third parties for their marketing 
-                    purposes. We may only share your information when required by law or to protect our rights and safety.
+                    We may share your data with trusted service providers, when required by law, or in case of 
+                    a business transfer. We do not share your data with third parties for marketing purposes.
                   </p>
                 </div>
 
                 {/* Your Rights */}
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-4">Your Rights</h3>
-                  <p className="text-gray-300 leading-relaxed mb-4">
-                    You have the right to:
-                  </p>
+                  <h3 className="text-xl font-bold text-white mb-4">6. Your Rights</h3>
                   <ul className="space-y-2 text-gray-300">
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Request access to your personal data</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Request correction of inaccurate data</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Request deletion of your data at any time</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Withdraw consent for data processing</span>
-                    </li>
+                    <li>Request access to your personal data.</li>
+                    <li>Request corrections or updates to your data.</li>
+                    <li>Request deletion (“right to be forgotten”).</li>
+                    <li>Restrict or object to processing.</li>
+                    <li>Withdraw consent for data use.</li>
                   </ul>
+                </div>
+
+                {/* Cookies */}
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-4">7. Cookies & Tracking</h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    Our site uses cookies to ensure functionality, remember preferences, and analyse traffic. 
+                    You can disable cookies in your browser, but some features may not work correctly.
+                  </p>
                 </div>
 
                 {/* Data Retention */}
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-4">Data Retention</h3>
+                  <h3 className="text-xl font-bold text-white mb-4">8. Data Retention</h3>
                   <p className="text-gray-300 leading-relaxed">
-                    We retain your personal information only for as long as necessary to fulfill the purposes 
-                    for which it was collected, comply with legal obligations, and resolve disputes. 
-                    You may request deletion of your data at any time.
+                    We retain personal data only as long as necessary for service delivery or legal compliance. 
+                    Contact form submissions are stored for up to 12 months, while contractual records may be retained 
+                    for up to 6 years under UK law.
                   </p>
                 </div>
 
-                {/* Contact Information */}
+                {/* Third-Party Links */}
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-4">9. Third-Party Links</h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    Our website may contain external links (e.g., LinkedIn, GitHub). 
+                    We are not responsible for their privacy practices and recommend reviewing their policies.
+                  </p>
+                </div>
+
+                {/* International Transfers */}
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-4">10. International Transfers</h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    Some of our third-party service providers may process data outside the UK/EEA. 
+                    In such cases, we ensure appropriate safeguards such as Standard Contractual Clauses.
+                  </p>
+                </div>
+
+                {/* Children's Privacy */}
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-4">11. Children’s Privacy</h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    Our services are not directed at children under 16. 
+                    We do not knowingly collect data from minors. 
+                    If you believe a child has provided data, contact us to remove it.
+                  </p>
+                </div>
+
+                {/* Updates */}
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-4">12. Updates to this Policy</h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    We may update this Privacy Policy periodically. 
+                    The latest version will always be available on this page with a revised “Last Updated” date.
+                  </p>
+                </div>
+
+                {/* Contact Info */}
                 <div className="bg-card/50 rounded-xl p-6">
-                  <h3 className="text-xl font-bold text-white mb-4">Contact Us About Your Privacy</h3>
+                  <h3 className="text-xl font-bold text-white mb-4">13. Contact Us</h3>
                   <p className="text-gray-300 leading-relaxed mb-6">
-                    If you have any questions about this privacy policy, want to exercise your rights, 
-                    or request deletion of your data, please contact us:
+                    If you have any questions, requests, or concerns regarding this Privacy Policy, please contact us:
                   </p>
                   
                   <div className="space-y-4">
@@ -176,13 +194,14 @@ const PrivacyPolicy: React.FC = () => {
                 {/* Last Updated */}
                 <div className="text-center pt-8 border-t border-white/10">
                   <p className="text-gray-400 text-sm">
-                    This privacy policy was last updated on {new Date().toLocaleDateString('en-GB', {
+                    This Privacy Policy was last updated on {new Date().toLocaleDateString('en-GB', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric'
                     })}
                   </p>
                 </div>
+
               </div>
             </div>
           </div>
