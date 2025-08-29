@@ -10,6 +10,7 @@ import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import FloatingContactButton from './components/FloatingContactButton';
 import CaseStudy from './pages/CaseStudy';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             </>
           } />
           <Route path="/case-study/thegigsearch" element={<CaseStudy />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
         <Footer />
         {/* <FloatingContactButton /> */}

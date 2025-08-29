@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Mail, Linkedin, Twitter, Github, Send, ArrowRight, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -406,11 +406,15 @@ const Footer: React.FC = () => {
             {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((link, index) => (
               <motion.a
                 key={index}
-                onClick={(e) => {
-                  e.preventDefault();
-                  // These would typically link to dedicated pages
-                  console.log(`Navigate to ${link}`);
-                }}
+                {...(link === 'Privacy Policy' 
+                  ? { as: Link, to: '/privacy-policy' }
+                  : { 
+                      onClick: (e: React.MouseEvent) => {
+                        e.preventDefault();
+                        console.log(`Navigate to ${link}`);
+                      }
+                    }
+                )}
                 className="text-gray-400 hover:text-primary transition-colors"
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.2 }}
