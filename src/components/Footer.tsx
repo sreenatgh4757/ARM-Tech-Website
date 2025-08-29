@@ -12,28 +12,25 @@ const Footer: React.FC = () => {
 
   const handleNavClick = (sectionId: string) => {
     if (location.pathname !== '/') {
-      // If not on home page, navigate to home first then scroll
       window.location.href = `/#${sectionId}`;
       return;
     }
-    
-    // Smooth scroll to section
     const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 80; // Account for fixed navbar
+      const offsetTop = element.offsetTop - 80;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
       });
     }
   };
+
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     
     setIsSubscribing(true);
     
-    // Simulate API call
     try {
       await new Promise(resolve => setTimeout(resolve, 1500));
       setSubscriptionStatus('success');
@@ -97,28 +94,13 @@ const Footer: React.FC = () => {
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
         <motion.div
           className="absolute top-10 right-10 w-32 h-32 bg-primary/5 rounded-full blur-xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.6, 0.3]
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute bottom-20 left-20 w-24 h-24 bg-secondary/5 rounded-full blur-xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.4, 0.7, 0.4]
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.4, 0.7, 0.4] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         />
       </div>
       
@@ -131,7 +113,6 @@ const Footer: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12"
         >
-          
           {/* Company Info & Logo */}
           <motion.div variants={itemVariants} className="lg:col-span-1">
             <div className="mb-6">
@@ -149,33 +130,16 @@ const Footer: React.FC = () => {
                 </div>
               </motion.div>
             </div>
-            
             <div className="space-y-4 text-sm text-gray-300">
-              
-              <motion.div
-                className="flex items-start gap-3 group"
-                whileHover={{ x: 5 }}
-                transition={{ duration: 0.2 }}
-              >
+              <motion.div className="flex items-start gap-3 group" whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                 <Mail size={16} className="mt-1 flex-shrink-0 text-primary group-hover:text-primary-dark transition-colors" />
-                <a
-                  href="mailto:info@armtechnologies.ltd"
-                  className="hover:text-primary transition-colors group-hover:text-white"
-                >
+                <a href="mailto:info@armtechnologies.ltd" className="hover:text-primary transition-colors group-hover:text-white">
                   info@armtechnologies.ltd
                 </a>
               </motion.div>
-              
-              <motion.div
-                className="flex items-start gap-3 group"
-                whileHover={{ x: 5 }}
-                transition={{ duration: 0.2 }}
-              >
+              <motion.div className="flex items-start gap-3 group" whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                 <Phone size={16} className="mt-1 flex-shrink-0 text-primary group-hover:text-primary-dark transition-colors" />
-                <a
-                  href="tel:+447823857523"
-                  className="hover:text-primary transition-colors group-hover:text-white"
-                >
+                <a href="tel:+447823857523" className="hover:text-primary transition-colors group-hover:text-white">
                   +44 7823 857 523
                 </a>
               </motion.div>
@@ -196,23 +160,14 @@ const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 * index, duration: 0.5 }}
-                  viewport={{ once: true }}
-                >
+                <motion.li key={index} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 * index, duration: 0.5 }} viewport={{ once: true }}>
                   <motion.a
                     onClick={() => handleNavClick(link.sectionId)}
                     className="text-gray-300 hover:text-primary transition-all duration-300 text-sm flex items-center gap-2 group"
                     whileHover={{ x: 8 }}
                     style={{ cursor: 'pointer' }}
                   >
-                    <ArrowRight 
-                      size={14} 
-                      className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-primary" 
-                    />
+                    <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-primary" />
                     <span className="group-hover:text-white transition-colors">{link.name}</span>
                   </motion.a>
                 </motion.li>
@@ -234,23 +189,14 @@ const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 * index, duration: 0.5 }}
-                  viewport={{ once: true }}
-                >
+                <motion.li key={index} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 * index, duration: 0.5 }} viewport={{ once: true }}>
                   <motion.a
                     onClick={() => handleNavClick(service.sectionId)}
                     className="text-gray-300 hover:text-secondary transition-all duration-300 text-sm flex items-center gap-2 group"
                     whileHover={{ x: 8 }}
                     style={{ cursor: 'pointer' }}
                   >
-                    <ArrowRight 
-                      size={14} 
-                      className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-secondary" 
-                    />
+                    <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-secondary" />
                     <span className="group-hover:text-white transition-colors">{service.name}</span>
                   </motion.a>
                 </motion.li>
@@ -258,7 +204,7 @@ const Footer: React.FC = () => {
             </ul>
           </motion.div>
 
-          {/* Newsletter Subscription */}
+          {/* Newsletter + Social */}
           <motion.div variants={itemVariants}>
             <h4 className="text-white font-bold text-lg mb-6 tracking-wide relative">
               Stay Updated
@@ -270,24 +216,11 @@ const Footer: React.FC = () => {
                 viewport={{ once: true }}
               />
             </h4>
-            <motion.p
-              className="text-gray-300 text-sm mb-4 leading-relaxed"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
+            <motion.p className="text-gray-300 text-sm mb-4 leading-relaxed" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.6 }} viewport={{ once: true }}>
               Get the latest insights on AI, automation, and technology trends.
             </motion.p>
             
-            <motion.form
-              onSubmit={handleNewsletterSubmit}
-              className="space-y-3"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
+            <motion.form onSubmit={handleNewsletterSubmit} className="space-y-3" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.6 }} viewport={{ once: true }}>
               <div className="relative">
                 <motion.input
                   type="email"
@@ -299,7 +232,6 @@ const Footer: React.FC = () => {
                   whileFocus={{ scale: 1.02 }}
                 />
               </div>
-              
               <motion.button
                 type="submit"
                 disabled={isSubscribing}
@@ -319,37 +251,20 @@ const Footer: React.FC = () => {
                   </>
                 )}
               </motion.button>
-              
               {subscriptionStatus === 'success' && (
-                <motion.p
-                  className="text-green-400 text-xs"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
+                <motion.p className="text-green-400 text-xs" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
                   Successfully subscribed!
                 </motion.p>
               )}
               {subscriptionStatus === 'error' && (
-                <motion.p
-                  className="text-red-400 text-xs"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
+                <motion.p className="text-red-400 text-xs" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
                   Something went wrong. Please try again.
                 </motion.p>
               )}
             </motion.form>
 
             {/* Social Links */}
-            <motion.div
-              className="mt-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
+            <motion.div className="mt-6" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.6 }} viewport={{ once: true }}>
               <h5 className="text-white font-semibold text-sm mb-3">Follow Us</h5>
               <div className="flex gap-3">
                 {socialLinks.map((social, index) => (
@@ -360,11 +275,7 @@ const Footer: React.FC = () => {
                     rel="noopener noreferrer"
                     className="bg-card/50 hover:bg-primary/20 text-gray-300 hover:text-primary p-2 rounded-lg transition-all duration-300"
                     aria-label={social.label}
-                    whileHover={{ 
-                      scale: 1.1,
-                      rotate: 5,
-                      backgroundColor: "rgba(162, 136, 227, 0.2)"
-                    }}
+                    whileHover={{ scale: 1.1, rotate: 5, backgroundColor: "rgba(162, 136, 227, 0.2)" }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -393,36 +304,28 @@ const Footer: React.FC = () => {
             </p>
             <p className="text-gray-400 text-xs mt-1">
               Contact us at{' '}
-              <a 
-                href="mailto:info@armtechnologies.ltd" 
-                className="text-primary hover:text-primary-dark transition-colors"
-              >
+              <a href="mailto:info@armtechnologies.ltd" className="text-primary hover:text-primary-dark transition-colors">
                 info@armtechnologies.ltd
               </a>
             </p>
           </div>
           
           <div className="flex gap-6 text-sm">
-            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((link, index) => (
-              <motion.a
-                key={index}
-                {...(link === 'Privacy Policy' 
-                  ? { as: Link, to: '/privacy-policy' }
-                  : { 
-                      onClick: (e: React.MouseEvent) => {
-                        e.preventDefault();
-                        console.log(`Navigate to ${link}`);
-                      }
-                    }
-                )}
-                className="text-gray-400 hover:text-primary transition-colors"
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.2 }}
-                style={{ cursor: 'pointer' }}
-              >
-                {link}
-              </motion.a>
-            ))}
+            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <Link to="/privacy-policy" className="text-gray-400 hover:text-primary transition-colors">
+                Privacy Policy
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <Link to="/terms-of-service" className="text-gray-400 hover:text-primary transition-colors">
+                Terms of Service
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <Link to="/cookie-policy" className="text-gray-400 hover:text-primary transition-colors">
+                Cookie Policy
+              </Link>
+            </motion.div>
           </div>
         </motion.div>
       </div>
