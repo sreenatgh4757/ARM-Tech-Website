@@ -11,6 +11,8 @@ import Footer from './components/Footer';
 import FloatingContactButton from './components/FloatingContactButton';
 import CaseStudy from './pages/CaseStudy';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import CookiePolicy from './pages/CookiePolicy';
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
           } />
           <Route path="/case-study/thegigsearch" element={<CaseStudy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+           <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
         </Routes>
         <Footer />
         {/* <FloatingContactButton /> */}
