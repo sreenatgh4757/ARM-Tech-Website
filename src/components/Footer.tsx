@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Mail, Linkedin, Twitter, Github, Send, ArrowRight, Phone } from 'lucide-react';
+import { Mail, Linkedin, Twitter, Github, Send, ArrowRight, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLocation, Link } from 'react-router-dom';
 
@@ -233,6 +233,9 @@ const Footer: React.FC = () => {
             </MotionLink>
             <MotionLink to="/cookie-policy" className="text-gray-400 hover:text-primary transition-colors" whileHover={{ y: -2 }}>
               Cookie Policy
+            </MotionLink>
+            <MotionLink to="/data-deletion" className="text-gray-400 hover:text-primary transition-colors" whileHover={{ y: -2 }}>
+              Data Deletion
             </MotionLink>
           </div>
         </motion.div>
