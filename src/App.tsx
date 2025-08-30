@@ -13,7 +13,7 @@ import CaseStudy from './pages/CaseStudy';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CookiePolicy from './pages/CookiePolicy';
-import DataDeletion from './pages/DataDeletion';
+import DataDeletion from './pages/Data Deletion';
 
 
 function App() {
